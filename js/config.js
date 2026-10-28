@@ -14,8 +14,8 @@ window.SEASHELL_CONFIG = {
     anonKey: "sb_publishable_CXtrSxJXfjEnD127JcLbIg_JqtLXXes"         // filled at deploy: the publishable key (sb_publishable_...) or legacy anon JWT
   },
 
-  // Tag stored with every row, so campaigns can be told apart ("site-v1", "pitch-qr").
-  source: "site-v1",
+  // Tag stored with every row, so campaigns can be told apart ("site-v2", "pitch-qr").
+  source: "site-v2",
 
   // The price shown on the page; stored with every buy_click so H66 ("they buy at 199") can be read.
   price: 199,
