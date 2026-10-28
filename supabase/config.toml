@@ -1,0 +1,6 @@
+# Supabase project for the Seashell waitlist. Migrations live in supabase/migrations and are
+# applied by the Supabase GitHub integration on push to main (Project Settings -> Integrations -> GitHub).
+project_id = "hyylgliqpzvaykttkkko"
+
+[db]
+major_version = 17

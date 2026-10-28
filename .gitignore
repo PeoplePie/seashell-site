@@ -1,0 +1,4 @@
+audit/
+*.tmp
+Thumbs.db
+.DS_Store
