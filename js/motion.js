@@ -194,6 +194,11 @@ function start() {
     if (v) ST.create({ trigger: pair, start: "top bottom", end: "bottom top", onToggle: function (s) { if (s.isActive) play(v); else pause(v); } });
   });
 
+  /* ---------- 4b. the AI clips on the light side and in the triathlon band play while their section is on screen ---------- */
+  q(".scene__vid").forEach(function (v) {
+    ST.create({ trigger: v.closest(".pair, .tri"), start: "top bottom", end: "bottom top", onToggle: function (s) { if (s.isActive) play(v); else pause(v); } });
+  });
+
   /* ---------- 5. how it works: the block holds still, the step changes at each quarter of its scroll ---------- */
   var stepEls = q(".step"), names = stepEls.map(function (s) { return s.getAttribute("data-step"); });
   if (stepEls.length && page.setStep) {

@@ -273,6 +273,9 @@ html.motion .ping { opacity: 0; }
 .shutter__cover { position: absolute; inset: 0; background: var(--deep); transform-origin: 100% 50%; }
 .shutter--photo { padding: 0; }
 .shutter--photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--fx, 50%) 50%; }
+/* the AI clips fade in over their stills once playing; the still stays for reduced motion and save-data */
+.scene__vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 50%); opacity: 0; transition: opacity .6s linear; }
+.scene__vid.is-playing { opacity: 1; }
 @media (max-width: 55.99em) {
   .pair { grid-template-columns: 1fr; min-height: 0; margin-top: 40px; }
   .pair + .pair { margin-top: 0; }
@@ -325,6 +328,8 @@ html.motion .step.is-on p { opacity: 1; visibility: visible; transform: none; tr
 .tri__track { display: flex; gap: 24px; padding: 48px var(--m) 0; align-items: flex-end; width: max-content; }
 .leg { flex: none; }
 .leg img { width: 100%; height: auto; }
+.leg__media { position: relative; }
+.leg__media img { display: block; }
 .leg figcaption { margin-top: 16px; display: grid; gap: 4px; max-width: 34ch; transition: opacity 200ms linear; }
 .leg figcaption.is-out { opacity: 0; }
 .leg h3 { font: 600 var(--s3)/1.1 var(--text); letter-spacing: -0.015em; }
