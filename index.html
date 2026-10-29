@@ -3,11 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seashell</title>
+<title>Seashell, a shell that takes the call</title>
 <meta name="description" content="A 30 mm shell with its own connection: calls from the people you name, a help call that rings the contact you chose, music. Made for surf, swim and run. In development at TU Delft.">
-<meta property="og:title" content="Seashell">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Seashell">
+<meta property="og:url" content="http://sportseashell.com/">
+<meta property="og:title" content="Seashell, a shell that takes the call">
 <meta property="og:description" content="A 30 mm shell with its own connection: calls from the people you name, a help call that rings the contact you chose, music. Made for surf, swim and run. In development at TU Delft.">
-<meta property="og:image" content="img/p-car-1.webp">
+<meta property="og:image" content="http://sportseashell.com/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A surfer from behind, the Seashell on his wetsuit collar with NOOR lit in its dots (AI-generated scene from our CAD model)">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="brand/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="brand/apple-touch-180.png">
@@ -44,14 +51,15 @@
 </div>
 <main id="main" class="site">
 <section class="sec" id="hero" style="--sh:898; --mh:728">
+  <h1 class="sr">Seashell, a shell that takes the call</h1>
   <div class="hero-poster" data-film="hero">
-    <img class="only-d" src="img/home-hero.webp" alt="A surfer from behind, the shell on his wetsuit collar with NOOR lit in its dots" width="1920" height="1080" fetchpriority="high">
-    <img class="only-m" src="img/home-hero-m.webp" alt="The same surfer, cut upright for the phone" width="720" height="1280">
-    <video class="hero-film" data-hero autoplay muted loop playsinline preload="auto" aria-label="Silent film, 19 seconds: a swimmer looks back at a dog on her towel, a runner fights his zip, a surfer takes a wave; then NOOR, MUM and JO light up on their shells, one press each, and the swimmer swims on. Everyone else stays on shore.">
+    <img class="only-d" src="img/home-hero.webp" alt="A surfer from behind in the sea, the shell on his wetsuit collar" width="1920" height="1080" fetchpriority="high">
+    <img class="only-m" src="img/home-hero-m.webp" alt="The same surfer, upright" width="720" height="1280">
+    <video class="hero-film" data-hero autoplay muted loop playsinline preload="auto" aria-label="Silent film, 14 seconds: NOOR, MUM and JO light up on the shells of a surfer, a swimmer and a runner; one press answers each call; the surfer rides his wave and the swimmer swims on. Everyone else stays on shore.">
       <source src="media/hero-loop-m.mp4" type="video/mp4" media="(max-width: 989px)">
       <source src="media/hero-loop.mp4" type="video/mp4">
     </video>
-    <span class="lab">AI-generated clips and scenes · stock footage, Pexels</span>
+    <span class="lab">AI-generated scenes (from the CAD model) · stock footage, Pexels</span>
   </div>
 </section>
 
@@ -130,15 +138,14 @@
     <p class="msg" role="status" aria-live="polite"></p>
   </div>
   <div class="col3">
-    <h2>legal</h2>
+    <h2>contact</h2>
     <div class="legal">
-      <a href="support.html#legal">terms of use</a>
-      <a href="support.html#legal">privacy policy</a>
-      <a href="#yourdata" data-yourdata>your data</a>
+      <a class="only-d" href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>
+      <a href="#yourdata" data-yourdata>privacy and your data</a>
     </div>
   </div>
   <a class="lock" href="index.html" aria-label="Seashell, home"><img src="brand/lockup-white.svg" alt="" width="391" height="70" loading="lazy"></a>
-  <small><span class="only-d">© 2026 Seashell. In development; pictures are renders, labelled AI scenes or stock footage.</span><span class="only-m">© 2026 Seashell</span></small>
+  <small>© 2026 Seashell. In development; pictures are renders, labelled AI scenes or stock footage.</small>
 </footer>
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="menu" hidden>
   <div class="back" data-menu-close></div>
@@ -187,7 +194,7 @@
     </div>
     <p class="b18">Pau Adell and William Roskaer (Seashell, TU Delft) store your email, the time, your browser and the page you came from, only to send launch news. Nothing is charged or sold.</p>
     <p class="b18">To see or delete your data, write to <a href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>.</p>
-    <p class="consent">Page views and buy-now clicks are counted without your name. On this preview everything stays in your own browser.</p>
+    <p class="consent">Page views and buy-now clicks are counted without your name and without cookies, in our database (Supabase): the page, the link you came from and its campaign tags, your browser, its language and window size, and a random number for this visit. The fonts load from Google Fonts.</p>
   </div>
 </dialog>
 <script src="js/main.js"></script>

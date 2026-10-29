@@ -72,6 +72,16 @@ ul, ol { list-style: none; }
 .k    { font-family: var(--pp); font-stretch: 92%; font-size: 1.4rem; line-height: 1.5; letter-spacing: 0.043em; color: var(--meta); }
 .white { color: var(--white); }
 .u { text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+/* no single word alone on a last line (review-v4, fix 9): headings balance their lines, text avoids short last lines */
+h1, h2, h3 { text-wrap: balance; }
+p, li, dd, figcaption { text-wrap: pretty; }
+/* the desktop worn heading's second line sits just above the rail: balanced, it would reach the first picture */
+@media (min-width: 990px) { .worn h2 { text-wrap: wrap; } }
+/* the phone titles are a 60 px span inside an h80 / h100 heading; the heading's own 72 to 90 px strut set the line
+   pitch, so give the heading the span's size and leading (review-v4, fix 4: 60 px at 0.9, as the spec's phone titles) */
+@media (max-width: 989px) {
+  .h80:has(> span.h60), .h100:has(> span.h60) { font-size: 6rem; line-height: 0.9; }
+}
 
 /* ---------- visibility per frame ---------- */
 @media (min-width: 990px) { .only-m { display: none !important; } }
@@ -247,8 +257,11 @@ ul, ol { list-style: none; }
   .ft .col2 .msg { left: 1.77rem; top: 49.2rem; width: 35rem; }
   .ft .links { left: 1.77rem; top: 54.38rem; display: grid; gap: 1.5rem; }
   .ft .links a { font: 400 2.4rem/2.4rem var(--nb); }
-  .ft .col3 { display: none; }
-  .ft small { left: 1.77rem; top: 84.6rem; font-size: 1.42rem; }
+  /* the phone keeps one "privacy and your data" link under the sign-up (review-v4, fix 14); the legal heading stays desktop */
+  .ft .col3 h2 { display: none; }
+  .ft .col3 .legal { position: absolute; left: 1.77rem; top: 76rem; }
+  .ft .col3 .legal a { position: static; font: 400 1.8rem/2.4rem var(--nb); text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+  .ft small { left: 1.77rem; right: 1.77rem; top: 81.8rem; font-size: 1.42rem; line-height: 1.3; }
 }
 /* backstage small footer */
 .fs { position: relative; height: 18.1rem; overflow: clip; background: var(--film); color: var(--white); }

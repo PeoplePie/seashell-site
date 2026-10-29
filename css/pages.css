@@ -103,6 +103,10 @@
 .moves figure { position: relative; width: 29.74rem; height: 52.46rem; overflow: hidden; background: var(--film); }
 .moves video, .moves img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .moves .play { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+/* review-v5, fix 4: each move carries its own thin white mark (a tap on the top, a turn arc, a 3 s hold ring, a click-in arrow)
+   drawn in the picture's own 608 x 1081 frame, so it lands on the shell at every width, and its word at the top left */
+.moves .mark { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.moves .mv { position: absolute; left: 1.4rem; top: 1.3rem; z-index: 2; color: var(--white); font: 400 1.8rem/1.1 var(--nb); letter-spacing: -0.01em; }
 .moves .mute { position: absolute; right: 1.3rem; bottom: 1.5rem; width: 4.04rem; height: 4.04rem; border-radius: 50%; background: rgba(0, 0, 0, 0.58); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.82); display: grid; place-items: center; color: var(--white); z-index: 2; }
 .moves .mute svg { width: 1.6rem; height: 1.6rem; }
 @media (max-width: 989px) {
@@ -408,3 +412,10 @@
 .shore .tiles figure:has(> img)::after { content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.5)); }
 .shore .tiles figcaption { z-index: 1; }
+/* review-v4 (step 913) */
+/* fix 10: the band is a real scene now (the phone on the towel); the picture is darkened under the words in the file, so it shows at full strength */
+.band .bg { opacity: 1; }
+/* fix 13: the 404 page's three ways back */
+.nf-links { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 4rem; }
+/* on the phone the band's words flow (not placed), so they need their own layer above the full-strength picture */
+@media (max-width: 989px) { .band > h2, .band > p { position: relative; z-index: 1; } }

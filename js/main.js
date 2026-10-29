@@ -224,7 +224,7 @@
       el.addEventListener("click", (function (s) { return function () { setPair(s); }; })(story));
       ground.appendChild(el); tiles.push(el);
     }
-    var cur = J[1];
+    var cur = J[0];   // the surf pair first (review-v4, fix 15)
     var setPair = function (s) {
       cur = s;
       [imgA, imgB].forEach(function (im, k) {
