@@ -1,0 +1,410 @@
+/* Seashell site v1: the sections, page by page (step 897). Desktop boxes are the measured px of
+   SPEC.md section 2 (set inline as --x/--y/--w/--h on .a); the phone frame flows in reading order,
+   with the measured gutter (17.7 px), sizes and rhythm. Own code. */
+
+/* ---------- shared pieces ---------- */
+.copy h2 + p, .copy h1 + p { margin-top: 1.86rem; }
+.copy p + p { margin-top: 1.35rem; }
+.copy .cta { margin-top: 7.45rem; }
+.copy h2 + .cta { margin-top: 3rem; }
+.hero-poster { position: absolute; left: 0; top: 5.4rem; width: 100%; height: calc(100% - 5.4rem); }
+.hero-poster img, .hero-poster video { width: 100%; height: 100%; object-fit: cover; }
+.rows { display: grid; }
+.rows .acc > button { font: 350 2.4rem/1.1 var(--nb); letter-spacing: -0.025em; }
+.rows .acc .body p { font: 400 1.8rem/1.25 var(--pp); font-stretch: 92%; letter-spacing: 0.02em; }
+.marks { display: flex; align-items: center; justify-content: space-between; }
+.marks img { object-fit: contain; }
+.counter { font: 400 1.4rem/1.214 var(--nb); letter-spacing: 0.17em; }
+.sub { font: 400 3rem/1.1 var(--nb); }
+.state-list button { display: block; text-align: left; font: 400 4rem/1.1 var(--nb); color: var(--quiet); }
+.state-list button[aria-pressed="true"] { color: inherit; }
+.state-list p { font: 400 2rem/1.1 var(--pp); font-stretch: 92%; margin: 0.9rem 0 1.7rem; }
+.state-list button:not([aria-pressed="true"]) + p { display: none; }
+.empty-frame { display: grid; place-items: center; width: 100%; height: 100%; background: var(--film); color: rgba(255, 255, 255, 0.85); font: 400 1.5rem/1.3 var(--pp); font-stretch: 92%; text-align: center; padding: 1.6rem; }
+.small-src { font: 400 1.4rem/1.3 var(--pp); font-stretch: 92%; color: var(--meta); letter-spacing: 0.02em; }
+
+/* every section on the phone: a flow column with the measured gutter unless it says otherwise */
+@media (max-width: 989px) {
+  .site { display: flex; flex-direction: column; }
+  .sec > .copy { padding: 0 1.77rem; }
+  .m-pad { padding: 4rem 1.77rem 3rem; }
+  .m-pic { position: relative; width: 100%; }
+  .m-pic img, .m-pic video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .m-night { background: var(--dark); color: var(--white); }
+  .m-row { display: flex; gap: 1.77rem; padding: 0 1.77rem; overflow: hidden; }
+  .m-row > * { flex: none; width: 32.35rem; }
+  .copy .cta { margin-top: 4.5rem; }
+  .copy h2 + .cta { margin-top: 2.66rem; }
+  .state-list button { font-size: 4rem; }
+}
+
+/* ---------- home ---------- */
+#hero { background: var(--white); }
+@media (max-width: 989px) {
+  #hero { background: var(--dark); }
+  #hero .hero-poster { position: relative; top: 0; height: 69.33rem; }
+  #hero .hero-poster img { object-fit: contain; }
+}
+.door .pic-side img { width: 100%; height: 100%; object-fit: cover; }
+.door.grey .pic-side img { mix-blend-mode: multiply; }
+@media (min-width: 990px) {
+  .door .copy h2 { width: calc(var(--hw) * 0.1rem); }
+  .door .copy p { width: calc(var(--pw) * 0.1rem); }
+}
+@media (max-width: 989px) {
+  .door { min-height: calc(var(--mh) * 0.1rem); display: flex; flex-direction: column; }
+  .door .copy { padding-top: 5.8rem; }
+  .door .pic-side { width: 100%; height: 51.9rem; margin: 4rem -1.77rem 0; width: calc(100% + 3.54rem); }
+  .door.over { position: relative; color: var(--white); }
+  .door.over .pic-side { position: absolute; inset: 0; margin: 0; width: 100%; height: 100%; z-index: 0; }
+  .door.over .copy { position: relative; z-index: 1; height: 100%; min-height: inherit; display: flex; flex-direction: column; padding-bottom: 3.8rem; }
+  .door.over .copy .cta { margin-top: auto; align-self: center; }
+  .door.over.ink { color: var(--black); }
+  .door.centre .copy { align-items: center; text-align: center; justify-content: center; padding-top: 16.5rem; }
+  .door.centre .copy p { width: 23rem; }
+  .door.centre .copy .cta { margin-top: 4.4rem; align-self: center; }
+  .door.grey .pic-side { width: 32.5rem; height: 57.6rem; margin: 5.8rem auto 0; }
+  .door h2.m40 { font: 350 4rem/1.1 var(--nb); letter-spacing: 0; }
+}
+
+/* ---------- product: buy box ---------- */
+.buybox .arrows button { position: absolute; }
+.buybox .wm img { width: 100%; height: 100%; }
+.buybox .price { font: 400 3.2rem/4.8rem var(--nb); letter-spacing: 0.019em; }
+.buybox .colour { font: 400 1.6rem/1 var(--nb); letter-spacing: 0.038em; }
+.buybox .ath { font: 400 1.6rem/1.1 var(--nb); letter-spacing: 0.038em; }
+.buybox .nums { margin-left: 1.2rem; font-weight: 400; }
+.buybox .note { font: 350 1.8rem/1.5 var(--pp); font-stretch: 92%; letter-spacing: 0.033em; }
+.buybox .trust { display: flex; justify-content: space-between; font: 400 1.6rem/1.1 var(--nb); letter-spacing: 0.038em; }
+.buybox .benefits li { font: 400 1.8rem/1.1 var(--nb); letter-spacing: 0.033em; }
+@media (max-width: 989px) {
+  .buybox { padding-bottom: 3rem; }
+  .buybox .slides { width: 100%; height: 44.67rem; margin-top: 17.3rem; }
+  .buybox .arrows { display: none; }
+  .buybox .counter { text-align: center; font: 500 2.4rem/1.25 var(--nb); letter-spacing: 0; margin-top: 2.4rem; }
+  .buybox .names { display: flex; gap: 1.6rem; align-items: center; padding: 0 1.77rem; margin-top: 4.4rem; font: 400 2.4rem/1 var(--nb); }
+  .buybox .price { font: 400 4rem/1 var(--nb); letter-spacing: 0; padding: 0 1.77rem; margin-top: 1.4rem; }
+  .buybox .swatches { padding: 0 1.77rem; margin-top: 1.2rem; }
+  .buybox .ath { display: block; padding: 0 1.77rem; margin-top: 2.2rem; }
+  .buybox .btn-buy { width: calc(100% - 3.54rem); margin: 3rem 1.77rem 0; height: 4.43rem; }
+  .buybox .note { padding: 0 1.77rem; margin-top: 1.6rem; }
+  .buybox .trust { margin: 2.4rem 1.77rem 0; padding-bottom: 1.6rem; font-size: 1.4rem; gap: 1rem; }
+  .buybox .benefits { margin: 2.4rem 1.77rem 0; }
+}
+
+/* the close-up rail, what we heard, calls, worn, moves */
+.details .rail { position: absolute; }
+.details .track > * { flex: none; margin-right: 1.9rem; }
+.quotes { display: grid; grid-template-columns: repeat(3, 39rem); gap: 3.9rem; }
+.quotes p { font: 350 1.6rem/1.2 var(--pp); font-stretch: 92%; letter-spacing: 0.038em; }
+.quotes .k { margin-top: 1rem; font-size: 1.4rem; }
+@media (max-width: 989px) { .quotes { grid-template-columns: 1fr; gap: 2.4rem; padding: 0 1.77rem; margin-top: 5rem; } .quotes p { max-width: 33rem; } }
+.moves { display: flex; gap: 1.95rem; }
+.moves figure { position: relative; width: 29.74rem; height: 52.46rem; overflow: hidden; background: var(--film); }
+.moves video, .moves img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.moves .play { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.moves .mute { position: absolute; right: 1.3rem; bottom: 1.5rem; width: 4.04rem; height: 4.04rem; border-radius: 50%; background: rgba(0, 0, 0, 0.58); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.82); display: grid; place-items: center; color: var(--white); z-index: 2; }
+.moves .mute svg { width: 1.6rem; height: 1.6rem; }
+@media (max-width: 989px) {
+  /* the four tiles keep their measured width and run as a rail you can swipe (review-v2, fix 2) */
+  .moves { padding: 0 1.77rem 0 7.7rem; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; margin-top: 2.2rem; }
+  .moves::-webkit-scrollbar { display: none; }
+  .moves figure { flex: none; width: 23.49rem; height: 41.57rem; }
+}
+.worn .track > figure { flex: none; width: 44.43rem; height: 58.91rem; margin-right: 4rem; position: relative; overflow: hidden; background: var(--panel); }
+.worn .track img { width: 100%; height: 100%; object-fit: cover; }
+.worn .cap p { font: 350 2rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; margin-top: 0.9rem; }
+@media (max-width: 989px) {
+  .worn .m-row { margin-top: 2.2rem; }
+  .worn .m-row figure { height: 42rem; position: relative; overflow: hidden; }
+  .worn .cap { padding: 0 1.77rem; margin-top: 1.2rem; }
+}
+
+/* card rails (the cradle, salt water): wide card 1089 x 540, the next one peeking at x 1199 */
+.cards { position: absolute; left: 9.63rem; display: flex; gap: 1.4rem; }
+.cards figure { flex: none; width: 108.87rem; height: 54rem; position: relative; overflow: hidden; background: var(--panel); }
+.cards figure img { width: 100%; height: 100%; object-fit: cover; }
+.cards .panel { position: absolute; width: 31.76rem; }
+.cards .panel h3 { font: 400 3rem/1.2 var(--nb); }
+.cards .panel p { font: 350 2rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; margin-top: 1.5rem; }
+.cards .panel .counter { display: block; margin-bottom: 1.2rem; }
+/* the card text sits on a white panel so it never crosses the picture (review-v2, fix 8); the text keeps its measured x / y */
+@media (min-width: 990px) {
+  .cards .panel { width: 35.76rem; margin: -1.6rem 0 0 -2rem; padding: 1.6rem 2rem 2rem; background: rgba(255, 255, 255, 0.94); border-radius: 0.4rem; }
+}
+@media (max-width: 989px) {
+  .cards { position: static; display: block; }
+  .cards figure { width: 100%; height: auto; }
+  .cards figure img { height: 43.2rem; }
+  .cards .panel { position: static; width: auto; padding: 1.4rem 1.77rem 0; }
+}
+
+/* the band and shorelist */
+.band { background: #041B15; color: var(--white); }
+.band .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
+.band h3 { font: 300 3rem/1.2 var(--nb); letter-spacing: -0.025em; }
+.band h2 { font: 350 6rem/0.9 var(--nb); letter-spacing: -0.025em; }
+@media (max-width: 989px) { .band { min-height: 36.6rem; padding: 11rem 2.9rem 3rem; } .band h2 { font: 400 6rem/1 var(--nb); letter-spacing: 0; } .band p { margin-top: 0.6rem; font-size: 2rem; } }
+.shore .ground { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+.shore .place { position: absolute; overflow: hidden; background: var(--film); color: var(--white); }
+.shore .place img { width: 100%; height: 100%; object-fit: cover; }
+.shore .place .names { position: absolute; left: 0; right: 0; text-align: center; }
+.shore .place .names h3 { font: 400 3rem/1 var(--nb); letter-spacing: -0.025em; }
+.shore .place .names h3 + h3 { font-weight: 300; margin-top: 1.2rem; }
+.shore .place .names p { font: 350 2rem/1.2 var(--pp); font-stretch: 92%; margin-top: 3rem; padding: 0 3rem; }
+.shore .strips { position: absolute; display: flex; gap: 1.3rem; }
+@media (max-width: 989px) {
+  .shore { padding-top: 5.3rem; }
+  .shore .ground { display: none; }
+  .shore .tiles { display: flex; gap: 1rem; padding: 0 1.77rem; margin-top: 2.6rem; }
+  .shore .tiles figure { flex: none; width: 23rem; height: 42.9rem; position: relative; overflow: hidden; background: var(--film); }
+  .shore .tiles img { width: 100%; height: 100%; object-fit: cover; }
+  .shore .tiles figcaption { position: absolute; left: 1.2rem; right: 1.2rem; bottom: 1.4rem; color: var(--white); font: 400 1.6rem/1.2 var(--nb); }
+  .shore .shade { position: relative; width: 100%; height: 50rem; margin-top: 3rem; color: var(--white); }
+  .shore .shade img { width: 100%; height: 100%; object-fit: cover; }
+  .shore .shade .txt { position: absolute; left: 1.77rem; right: 1.77rem; bottom: 4rem; }
+  .shore .shade h3 { font: 350 3rem/1.1 var(--nb); }
+  .shore .shade p { margin-top: 1.85rem; font: 350 2rem/1.1 var(--pp); font-stretch: 92%; }
+}
+.turn-pic img { width: 100%; height: 100%; object-fit: cover; object-position: left center; }
+.mech h2 { font: 350 6rem/0.9 var(--nb); letter-spacing: -0.025em; }
+.mech h3 { font: 400 3rem/1.1 var(--nb); }
+.mech p { font: 350 2rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; margin-top: 2rem; }
+
+/* wired, the box, specs, interviews */
+.wired-txt h2 { font: 350 8rem/0.9 var(--nb); letter-spacing: -0.05em; }
+.wired-txt p { font: 350 2rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; margin-top: 0; }
+.box-list { font: 400 1.8rem/1.1 var(--nb); letter-spacing: 0.033em; display: grid; gap: 1rem; }
+.box-list .k { margin-top: 1.4rem; }
+@media (max-width: 989px) {
+  .inbox .box-list { padding: 0 1.77rem; margin-top: 2.4rem; }
+  .inbox .m-pic { height: 42.2rem; margin-top: 3rem; }
+  .inbox .m-row { margin-top: 1rem; }
+  .inbox .m-row figure { width: 29.2rem; height: 34.4rem; position: relative; overflow: hidden; }
+}
+.specs { position: relative; padding: 21.9rem 9.63rem 6rem 9.63rem; }
+.specs h2 { position: absolute; left: 9.63rem; top: 4.08rem; }
+.specs .spec:last-of-type { border-bottom: 1px solid var(--rule); }
+.spec ul li { display: grid; grid-template-columns: 27.9rem 1fr; gap: 2rem; }
+.spec ul li b { font: 500 2rem/1.2 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; }
+@media (max-width: 989px) { .specs { padding: 3rem 1.77rem 4rem; } .specs h2 { position: static; margin-bottom: 2.4rem; } .spec ul li { grid-template-columns: 1fr; gap: 0.3rem; } .specs .btn-up { margin-top: 3rem; } }
+.interviews .num { font: 400 6rem/1 var(--nb); letter-spacing: 0.01em; }
+.interviews .intro { font: 350 1.6rem/1.2 var(--pp); font-stretch: 92%; letter-spacing: 0.038em; }
+.interviews .list { position: absolute; left: 9.63rem; top: 45rem; width: 108.25rem; }
+@media (max-width: 989px) {
+  .interviews { padding: 2rem 1.77rem 4rem; }
+  .interviews .num { margin-top: 2.4rem; }
+  .interviews .intro { margin-top: 1.4rem; max-width: 33rem; }
+  .interviews .list { position: static; width: auto; margin-top: 3rem; }
+}
+.sticky-sentinel { position: absolute; left: 0; top: 0; width: 1px; height: 1px; }
+
+/* ---------- workbench ---------- */
+.wb-hero { color: var(--white); }
+.wb-hero .copy p { width: 39rem; }
+.film-band { background: var(--film); }
+.film-band img, .film-band video { width: 100%; height: 100%; object-fit: cover; }
+.wb-dark { background: var(--dark); color: var(--white); }
+.wb-dark .acc { border-color: var(--white); }
+.markers .marker { font-size: 2.4rem; }
+.markers .marker.s { width: 5.88rem; height: 5.88rem; font-size: 2rem; }
+.wb-state h3 { font: 400 4rem/1.1 var(--nb); letter-spacing: -0.025em; }
+.wb-state p { font: 350 2rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; margin-top: 1.2rem; }
+.wb-state .st { transition: opacity 0.16s ease; }
+.wb-state .st:not(.is-on) { display: none; }
+@media (max-width: 989px) {
+  .wb-hero { min-height: 95.7rem; }
+  .wb-hero .copy { position: absolute; left: 0; right: 0; top: 16.6rem; z-index: 1; }
+  .wb-hero .copy p { width: auto; }
+  .wb-hero .mfill img { width: 100%; height: 100%; object-fit: cover; }
+  .film-band { position: relative; height: 82.9rem; color: var(--white); }
+  .film-band h2 { position: absolute; left: 1.86rem; right: 1.77rem; bottom: 5.8rem; }
+  .wb-pic { position: relative; width: 100%; margin-top: 2.6rem; }
+  .wb-pic img { width: 100%; height: 100%; object-fit: cover; }
+  .markers .marker.s { width: 5.94rem; height: 5.94rem; }
+  .wb-two { position: relative; height: 60rem; margin-top: 2.4rem; }
+  .wb-two figure { position: absolute; overflow: hidden; }
+  .wb-two figure img { width: 100%; height: 100%; object-fit: cover; }
+  .wb-two .f1 { left: 0; top: 0; width: 22.34rem; height: 27.92rem; }
+  .wb-two .f2 { left: 15.42rem; top: 25.8rem; width: 26.15rem; height: 32.71rem; }
+}
+
+/* ---------- shorelist page ---------- */
+.sl-hero { color: var(--white); }
+.statement { text-align: center; }
+.statement h2 { font: 400 6rem/1 var(--nb); letter-spacing: -0.017em; }
+.statement p { font: 300 2.4rem/1 var(--nb); margin-top: 2.4rem; }
+.statement .small-src { margin-top: 2.4rem; }
+.sl-band { background: #1E4D47; color: var(--white); }   /* offing, the fit map's shorelist colour (concept A); BRAND.md: never berry as a wash behind text (step 899) */
+.sl-band h2 { font: 350 10rem/0.9 var(--nb); letter-spacing: -0.05em; }
+.sl-band p { font: 350 2rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; margin-top: 2.9rem; }
+.pill { border-radius: 0 0 52rem 52rem / 0 0 30rem 30rem; position: absolute; overflow: hidden; background: var(--film); color: var(--white); }
+.pill img { width: 100%; height: 100%; object-fit: cover; }
+.pill .txt { position: absolute; left: 10.9rem; right: 10.9rem; top: 9.4rem; z-index: 1; }
+.pill .txt h3 { font: 400 3rem/1 var(--nb); letter-spacing: -0.025em; }
+.pill .txt p { font: 350 2rem/1.2 var(--pp); font-stretch: 92%; margin-top: 2.4rem; max-width: 82rem; }
+.pill .place-name { position: absolute; left: 0; right: 0; bottom: 10rem; text-align: center; z-index: 1; font: 350 3rem/1 var(--nb); letter-spacing: -0.025em; }
+.pill .sign { position: absolute; left: 0; right: 0; bottom: 5.6rem; text-align: center; z-index: 1; font: 350 2rem/1.2 var(--pp); font-stretch: 92%; }
+.pill-cap { position: absolute; text-align: center; font: 400 1.6rem/1.2 var(--pp); font-stretch: 92%; }
+.places .thumbs { position: absolute; display: grid; gap: 17.8rem; }
+.places .tab { transition: opacity 0.32s ease; }
+.places .tab:not(.is-on) { opacity: 0; pointer-events: none; }
+@media (max-width: 989px) {
+  .sl-hero { min-height: 84.8rem; position: relative; }
+  .sl-hero .copy { position: absolute; left: 0; right: 0; top: 47.2rem; z-index: 1; }
+  .sl-hero h1 { font: 400 4rem/1 var(--nb); letter-spacing: -0.025em; width: 32.35rem; }
+  .sl-title { padding: 6.5rem 1.77rem 0; }
+  .sl-title h2 { font: 400 8rem/1 var(--nb); letter-spacing: -0.025em; }
+  .sl-title h3 { font: 300 2.8rem/1.1 var(--nb); margin-top: 0.9rem; }
+  .sl-stat { position: relative; margin: 2.3rem 1.77rem 0; height: 44.3rem; color: var(--white); }
+  .sl-stat img { width: 100%; height: 100%; object-fit: cover; }
+  .sl-stat .txt { position: absolute; left: 3.1rem; right: 3.1rem; top: 9.4rem; text-align: center; }
+  .sl-stat h2 { font: 400 4rem/1 var(--nb); letter-spacing: -0.025em; }
+  .sl-stat p { font: 300 2.8rem/1 var(--nb); letter-spacing: -0.036em; margin-top: 3.5rem; }
+  .sl-ritual { padding-top: 4rem; }
+  .sl-ritual > p { padding: 0 1.77rem; font: 350 2rem/1.2 var(--pp); font-stretch: 92%; }
+  .sl-ritual .card { margin: 2.4rem 1.77rem 0; height: 22.3rem; background: var(--panel); display: grid; place-items: center; text-align: center; padding: 2rem; }
+  .sl-ritual .card button { font: 400 2.4rem/1 var(--nb); border: 1px solid var(--black); border-radius: 0.4rem; height: 3.9rem; padding: 0 2rem; }
+  .sl-ritual .card p { font: 400 1.4rem/1.3 var(--pp); font-stretch: 92%; color: var(--meta); margin-top: 1rem; }
+  .places { padding-bottom: 4rem; }
+  .places .m-tab { position: relative; margin: 0 1.77rem; height: 48.9rem; overflow: hidden; background: var(--film); color: var(--white); }
+  .places .m-tab img { width: 100%; height: 100%; object-fit: cover; }
+  .places .m-tab .txt { position: absolute; left: 3.1rem; right: 3.1rem; top: 6.3rem; }
+  .places .m-tab h3 { font: 400 3rem/1 var(--nb); letter-spacing: -0.015em; }
+  .places .m-tab p { font: 350 2rem/1.1 var(--pp); font-stretch: 92%; margin-top: 2rem; }
+  .places .m-tab .place-name { position: absolute; left: 0; right: 0; bottom: 4rem; text-align: center; font: 350 3rem/1 var(--nb); letter-spacing: -0.025em; }
+  .places .dots { display: flex; justify-content: center; gap: 0.7rem; margin-top: 4rem; }
+  .places .dots button { width: 4.62rem; height: 4.62rem; border-radius: 50%; overflow: hidden; background: var(--swatch-line); opacity: 0.6; }
+  .places .dots button[aria-pressed="true"] { opacity: 1; box-shadow: 0 0 0 1px var(--black); }
+  .places .dots img { width: 100%; height: 100%; object-fit: cover; }
+  .places .sign-m { text-align: center; padding: 0 1.77rem; margin-top: 2.4rem; font: 350 2rem/1.2 var(--pp); font-stretch: 92%; }
+}
+
+/* ---------- journal ---------- */
+.play-ground { height: 73.4rem; }
+.play-ground .pair { left: 50%; top: 50%; width: 48rem; height: 36rem; transform: translate(-50%, -50%); }
+.play-ground .pair figure img { transition: opacity 0.32s ease; }
+@media (max-width: 989px) { .play-ground { height: 51.8rem; } .play-ground .pair { width: 24rem; height: 18rem; } }
+
+/* ---------- support ---------- */
+.sup-blocks h3 { font: 400 2.8rem/1 var(--nb); letter-spacing: -0.025em; }
+.sup-blocks p { font: 350 2rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; margin-top: 1.15rem; }
+.sup-blocks .btn-fill { margin-top: 1.7rem; }
+.sup-blocks .mail { display: inline-block; margin-top: 1rem; font: 350 2rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; text-decoration: underline; text-underline-offset: 0.2em; }
+.sup-blocks > div + div { margin-top: 4rem; }
+.app-block h3 { font: 400 4rem/1 var(--nb); letter-spacing: -0.025em; }
+.app-block p { font: 350 2rem/1.2 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; margin-top: 1.2rem; }
+.phone-sketch { width: 20.5rem; height: 41.4rem; border: 0.3rem solid var(--black); border-radius: 3rem; position: relative; padding: 5rem 2rem 0; }
+.phone-sketch::before { content: ""; position: absolute; left: 50%; top: 1.2rem; width: 5rem; height: 1rem; margin-left: -2.5rem; border-radius: 1rem; background: var(--black); }
+.phone-sketch b { display: block; font: 400 1.6rem/1 var(--nb); margin-bottom: 1.6rem; }
+.phone-sketch i { display: block; height: 1px; background: var(--rule); margin: 2.6rem 0; }
+.phone-sketch small { position: absolute; left: 2rem; bottom: 2rem; font: 400 1.2rem/1.2 var(--pp); color: var(--meta); }
+.legal-col h3, .contact-col h3 { font: 400 4rem/1 var(--nb); letter-spacing: -0.025em; }
+.legal-col .legal-links { margin-top: 1.1rem; }
+.contact-col h4 { font: 400 2.4rem/0.975 var(--nb); letter-spacing: -0.025em; margin-top: 2.6rem; }
+.contact-col p { font: 350 1.8rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.033em; margin-top: 1.6rem; }
+@media (max-width: 989px) {
+  .app-block { padding: 14.8rem 3.54rem 0; min-height: 88.7rem; }
+  .app-block h3 { font-size: 2.8rem; }
+  .app-block p { font: 400 2rem/1.2 var(--pp); font-stretch: 92%; }
+  .app-block .phone-sketch { width: 21.3rem; height: 43rem; margin: 3.4rem auto 0; }
+  .sup-blocks { padding: 3.2rem 3.54rem 0; min-height: 71.4rem; }
+  .sup-blocks .btn-fill { font-size: 1.8rem; height: 4.1rem; }
+  .sup-blocks > div + div { margin-top: 3rem; }
+  .contact-col { padding: 1.5rem 3.54rem 0; min-height: 19.6rem; }
+  .contact-col h3, .legal-col h3 { font-size: 2.8rem; }
+  .legal-col { padding: 1.4rem 3.54rem 0; min-height: 24.2rem; }
+  .legal-col .legal-links a, .legal-col .legal-links button { font-size: 2rem; }
+}
+
+/* ---------- FAQs ---------- */
+.faq-top { padding: 35.7rem 9.63rem 6.5rem 54.38rem; }
+.faq-top h1 { position: absolute; left: 9.63rem; top: 19.2rem; width: 124.75rem; font: 350 8rem/0.9 var(--nb); letter-spacing: 0; }
+.faq-top .faq-intro { position: absolute; left: 9.63rem; top: 33rem; width: 35.1rem; }
+.faq-top .faq-intro p { font: 350 2rem/1.2 var(--pp); font-stretch: 92%; }
+.faq-top .faq-intro p + p { margin-top: 1.6rem; }
+.faq-top .faq-intro a { text-decoration: underline; text-underline-offset: 0.2em; font: 350 2rem/1.2 var(--pp); font-stretch: 92%; }
+.faq-contact h3 { font: 400 4rem/1 var(--nb); letter-spacing: -0.025em; }
+.faq-contact h4 { font: 400 2.4rem/0.975 var(--nb); letter-spacing: -0.025em; margin-top: 4.6rem; }
+.faq-contact p { font: 350 1.8rem/1.2 var(--pp); font-stretch: 92%; margin-top: 1.4rem; }
+@media (max-width: 989px) {
+  .faq-top { padding: 2.3rem 3rem 4rem; min-height: 0; }
+  .faq-top h1 { position: static; width: auto; font: 400 3.2rem/1 var(--nb); letter-spacing: -0.025em; margin-bottom: 2.4rem; }
+  .faq-top .faq-intro { position: static; width: auto; margin-bottom: 3.3rem; }
+  .faq-intro-m { padding: 4rem 3rem 0; min-height: 20rem; }
+  .faq-intro-m p { font: 350 2rem/1.2 var(--pp); font-stretch: 92%; }
+}
+
+/* ---------- order on the phone, and a few last rules ---------- */
+@media (max-width: 989px) {
+  .site > .sec { order: var(--o, 0); }
+  .m-night .lab { background: rgba(255, 255, 255, 0.18); }
+  /* the phone-flow padding and margin of a placed element (--mp / --mm, set inline) apply on the phone only;
+     on the desktop frame the element sits at its measured box with none (step 898, fixes 2 and 3) */
+  .a[style*="--mp"] { padding: var(--mp); }
+  .a[style*="--mm"] { margin: var(--mm); }
+}
+/* step 898, fix 7: the empty surf frames are light, the thumb too, and the turn renders are ghosted to 24 % */
+.pill > .tab, .m-tab > .tab { position: absolute; inset: 0; }
+.pill .empty-frame, .m-tab .empty-frame { background: var(--panel); color: var(--meta); }
+.pill:has(> .tab.is-on > .empty-frame), .m-tab:has(> .tab.is-on > .empty-frame) { color: var(--black); }
+.thumb.empty { background: var(--panel); color: var(--meta); }
+.mech .turn-pic img { opacity: 0.24; }
+.sl-band .side { position: absolute; left: 50%; top: 0; width: 50%; height: 100%; overflow: hidden; }
+.sl-band .side img { width: 100%; height: 100%; object-fit: cover; }
+.sl-band .plan { font-size: 1.4rem; line-height: 1.4; opacity: 0.85; margin-top: 2.4rem; }
+/* step 898, fix 10: on the phone, door 2 keeps its text on white above the photo and the call to action under it */
+@media (max-width: 989px) {
+  .door .cta-m { align-self: center; margin: 3.4rem 0 3.6rem; }
+}
+@media (min-width: 990px) {
+  .interviews { padding: 45rem 9.63rem 8rem; }
+  .interviews .list { position: static; width: 108.25rem; }
+}
+.h36 { font: 400 3.6rem/1.1 var(--nb); }
+.only-m.h60, span.h60 { font: 400 6rem/0.9 var(--nb); letter-spacing: -0.025em; }
+/* the surf frame on the product page holds no picture yet: keep it light so the heading reads over it */
+.shore .place .empty-frame { background: var(--panel); color: var(--meta); }
+.shore .place .names { color: var(--black); }
+.shore h2, .shore > p { z-index: 2; }
+/* step 899: product stills that stand in for "what we heard" and "the interviews" while PUBLIC_QUOTES is False
+   (tools/build_pages.py); each keeps the measured height of the section it replaces */
+.still-band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 990px) { .still-band .end { top: 20rem; height: 96rem; } }     /* the closing still starts under the back-up button */
+/* step 899: the v4 open-shade render is lighter than the v3 one; a scrim keeps the white words on it readable (phone) */
+@media (max-width: 989px) {
+  .shore .shade::after, .sl-stat::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+  .shore .shade::after { background: linear-gradient(rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.5)); }
+  .sl-stat::after { background: rgba(0, 0, 0, 0.34); }
+  .shore .shade .txt, .sl-stat .txt { z-index: 1; }
+}
+/* review-v2 (step 899c) */
+@media (max-width: 989px) {
+  /* fix 3: the phone heading of the shore section is a 30 px line, so its tracking and line height are a 30 px heading's */
+  .shore h2.h80 { font: 400 3rem/1.1 var(--nb); letter-spacing: -0.02em; }
+  /* fix 4c: the colour hedge shows on the phone too, under the price */
+  .buybox .colour { padding: 0 1.77rem; margin-top: 1rem; font-size: 1.4rem; }
+}
+/* fix 5: the shorelist hedge reads: black at the size of the line above it, not grey on the blurred ground */
+.shore > .k { color: var(--black); font-size: 1.6rem; line-height: 1.3; }
+/* fix 11: a chip stays on its picture. The canvas rows stretch to fill the page's measured height, so a full-bleed
+   figure grew taller than its image and its chip fell below it; on the phone the door picture is the chip's box */
+.canvas .bleed { align-self: start; }
+@media (max-width: 989px) {
+  .door .pic-side { position: relative; }
+  .door:not(.over):not(.grey) .pic-side .lab { left: 2.57rem; }   /* the picture bleeds 17.7 px past each edge */
+}
+.fs .lab { z-index: 2; }
+/* step 911: the Friday production set. The hero film lies over its poster: the poster picture shows until the
+   film's first frame and stays when motion is reduced (js/main.js). The surf frames hold a picture now, so the
+   place pictures carry a scrim under their white words, and the product page's place names are white again */
+.hero-poster video { position: absolute; inset: 0; }
+.pill > .tab:has(> img)::after, .m-tab > .tab:has(> img)::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.12) 48%, rgba(0, 0, 0, 0.12) 62%, rgba(0, 0, 0, 0.42)); }
+.shore .place:has(> img)::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.45) 38%, rgba(0, 0, 0, 0.45) 64%, rgba(0, 0, 0, 0.05)); }
+.shore .place .names { z-index: 1; }
+.shore .place:has(> img) .names { color: var(--white); }
+.shore .tiles figure:has(> img)::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.5)); }
+.shore .tiles figcaption { z-index: 1; }

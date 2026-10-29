@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seashell, on the workbench</title>
+<meta name="description" content="How a 30 mm cellular shell is built at TU Delft: a Nordic nRF9151 modem, 165 hidden dots, three moves by feel, one shell and three cradles.">
+<meta property="og:title" content="Seashell, on the workbench">
+<meta property="og:description" content="How a 30 mm cellular shell is built at TU Delft: a Nordic nRF9151 modem, 165 hidden dots, three moves by feel, one shell and three cradles.">
+<meta property="og:image" content="img/p-car-1.webp">
+<link rel="icon" href="brand/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="brand/apple-touch-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..800&family=Instrument+Sans:ital,wdth,wght@0,75..100,400..700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages.css">
+<script src="js/config.js"></script>
+<script src="js/store.js"></script>
+</head>
+<body data-view="workbench">
+<div class="veil" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hd">
+  <nav class="nav" aria-label="Site">
+    <a href="seashell.html" >seashell</a>
+    <a href="workbench.html" aria-current="page">workbench</a>
+    <a href="shorelist.html" >shorelist</a>
+    <a href="support.html" >support</a>
+  </nav>
+  <a class="logo" href="index.html" aria-label="Seashell, home"><img src="brand/lockup.svg" alt="" width="156" height="28"></a>
+  <a class="buy" href="#waitlist" data-buy="nav">buy now</a>
+</header>
+<div class="mh">
+  <div class="mbar" aria-live="polite"><span>designed in Delft</span><span hidden>waitlist only, nothing charged</span></div>
+  <div class="mhead">
+    <button class="burger" type="button" aria-label="menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 18" aria-hidden="true"><path d="M1 1h22M1 9h22M1 17h22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <a class="logo" href="index.html" aria-label="Seashell, home"><img src="brand/lockup.svg" alt="" width="156" height="28"></a>
+    <a class="buy" href="#waitlist" data-buy="nav">buy</a>
+  </div>
+</div>
+<main id="main" class="site">
+<section class="sec wb-hero" id="wb-hero" style="--sh:819; --mh:957">
+  <div class="fill mfill pic dark"><img class="only-d" src="img/w-hero.webp" alt="The hub on a dark ground, a name lit" width="1920" height="1092" fetchpriority="high"><img class="only-m" src="img/w-hero-m.webp" alt="The hub on a dark ground, upright" width="700" height="1718"><span class="lab">render of the first version (42 mm hub); Seashell is now 30 mm</span></div>
+  <div class="a noh copy" style="--x:171; --y:179; --w:420">
+    <h1 class="h100"><span class="only-d">on the workbench</span><span class="only-m h60">on the workbench</span></h1>
+    <p class="b20" style="margin-top:5rem">Seashell is a TU Delft start-up project by Pau Adell and William Roskaer. It began as a 42 mm hub in a prototyping course; four versions later it is a 30 mm shell, each checked by script.</p>
+  </div>
+</section>
+
+<section class="sec film-band" id="wb-film" style="--sh:819; --mh:829">
+  <div class="fill mfill pic dark" data-film="wb"><img class="only-d" src="img/w-film.webp" alt="The parts of the first hub pulled apart, x-ray style" width="1920" height="1080" loading="lazy"><img class="only-m" src="img/w-film-m.webp" alt="The parts pulled apart, upright" width="800" height="1739" loading="lazy"><span class="lab">render of the first version; a 14 s loop from CAD v4 to come</span></div>
+  <h2 class="h60 only-m">the shell, opened</h2>
+</section>
+
+<section class="sec" id="wb-radio" style="--sh:818; --mh:490">
+  <h2 class="a noh h80" style="--x:113; --y:103; --w:617; --mp:5.7rem 1.86rem 0"><span class="only-d">a cellular modem in a 30 mm shell</span><span class="only-m h60">a cellular modem in a 30 mm shell</span></h2>
+  <p class="a noh b20" style="--x:113; --y:262; --w:432; --mp:2.1rem 1.86rem 0">Nordic's nRF9151, a 12 × 11 mm modem with GNSS, shares a 26 mm board with the hidden dots.</p>
+  <div class="a noh rows only-d" style="--x:113; --y:355; --w:440" data-acc-set>
+    <div class="acc is-open"><button type="button" aria-expanded="true">LTE-M and an eSIM<span class="pm"></span></button><div class="body"><div><p>The modem joins LTE-M, a mobile network built for small devices, through a 2.5 mm eSIM chip. Calls run over the internet.</p></div></div></div>
+    <div class="acc"><button type="button" aria-expanded="false">GNSS for your position<span class="pm"></span></button><div class="body"><div><p>A small antenna under the top finds where you are, so the help call to the contact you chose carries your position.</p></div></div></div>
+    <div class="acc"><button type="button" aria-expanded="false">LE Audio by nRF5340<span class="pm"></span></button><div class="body"><div><p>A second Nordic chip runs LE Audio for earbuds on land and loads your music over USB in the charging cradle.</p></div></div></div>
+  </div>
+  <figure class="a pic none wb-pic" style="--x:714; --y:28; --w:571; --h:761"><img src="img/w-inside.webp" alt="The floor plan of the v4 board from above: modem, dots, cell" width="835" height="1113" loading="lazy" style="object-fit:contain"><span class="lab">drawing, v4 floor plan</span></figure>
+</section>
+
+<section class="sec only-m" id="wb-dots" style="--mh:452">
+  <h3 class="sub" style="padding:23.5rem 1.77rem 0">165 hidden dots</h3>
+  <p class="b20" style="padding:0.9rem 1.77rem 3rem">White LEDs at 0.8 mm under a skin the colour of the shell. Off, you see one plain colour; lit, a name in two lines of four.</p>
+</section>
+
+<section class="sec markers" id="wb-moves" style="--sh:816; --mh:977">
+  <h2 class="a noh h100" style="--x:169; --y:83; --w:600; --mp:3.75rem 1.77rem 0"><span class="only-d">three moves</span><span class="only-m h60">three moves, all by feel</span></h2>
+  <p class="only-m b20" style="padding:1.3rem 1.77rem 0">Nothing here needs a touchscreen.</p>
+  <figure class="a pic none wb-pic" style="--x:338; --y:202; --w:764; --h:408; height:auto"><img class="only-d" src="img/w-top.webp" alt="The top from above" width="1500" height="801" loading="lazy"><img class="only-m" src="img/w-top-m.webp" alt="The top from above" width="960" height="960" loading="lazy"><span class="lab top right">render v4</span></figure>
+  <button type="button" class="a marker only-d" data-state="1" aria-pressed="true" style="--x:604; --y:341; --w:64; --h:64">1</button>
+  <button type="button" class="a marker only-d" data-state="2" aria-pressed="false" style="--x:846; --y:286; --w:64; --h:64">2</button>
+  <button type="button" class="a marker only-d" data-state="3" aria-pressed="false" style="--x:820; --y:419; --w:64; --h:64">3</button>
+  <div class="a noh wb-state only-d" style="--x:186; --y:565; --w:356" data-states>
+    <div class="st is-on" data-state="1"><h3>press anywhere</h3><p>Press anywhere to answer or end a call.</p></div>
+    <div class="st" data-state="2"><h3>turn the top</h3><p>Turn for volume.</p></div>
+    <div class="st" data-state="3"><h3>hold the top</h3><p>Hold three seconds to ring the contact you chose.</p></div>
+  </div>
+  <figure class="a pic none only-d" style="--x:900; --y:480; --w:435; --h:324"><img src="img/w-side.webp" alt="The side of the shell" width="900" height="675" loading="lazy" style="object-fit:contain"><span class="lab">render v4</span></figure>
+  <div class="state-list only-m" style="padding:2.4rem 1.77rem 3rem" data-state-list>
+    <button type="button" aria-pressed="true">press anywhere</button><p>Press anywhere on the top to answer or end a call, wet or in gloves.</p>
+    <button type="button" aria-pressed="false">turn the top</button><p>Turn the top for volume: 24 clicks a circle, felt through gloves.</p>
+    <button type="button" aria-pressed="false">hold the top</button><p>Hold it three seconds and the shell rings the contact you chose, with your position.</p>
+  </div>
+</section>
+
+<section class="sec wb-dark markers" id="wb-cradles" style="--sh:864; --mh:944">
+  <h2 class="a noh h100" style="--x:217; --y:231; --w:420; --mp:5rem 1.77rem 0"><span class="only-d">three cradles</span><span class="only-m h60">one shell, three cradles</span></h2>
+  <p class="a noh b20" style="--x:217; --y:432; --w:314; --mp:1.86rem 1.77rem 0">The shell clicks into a thin TPU cradle, keyed so the name always reads the right way up.</p>
+  <div class="a noh rows only-d" style="--x:217; --y:505; --w:330" data-acc-set>
+    <div class="acc is-open"><button type="button" aria-expanded="true">wrist band<span class="pm"></span></button><div class="body"><div><p>8.6 mm on the wrist, shell and cradle floor together.</p></div></div></div>
+    <div class="acc"><button type="button" aria-expanded="false">goggle cradle<span class="pm"></span></button><div class="body"><div><p>on the strap at the back of your head; one press answers without looking.</p></div></div></div>
+    <div class="acc"><button type="button" aria-expanded="false">collar clip<span class="pm"></span></button><div class="body"><div><p>on a wetsuit collar or the neck of a top.</p></div></div></div>
+  </div>
+  <figure class="a pic dark wb-pic" style="--x:644; --y:39; --w:618; --h:771"><img src="img/w-cradle-1.webp" alt="The shell in its wrist cradle" width="1240" height="1550" loading="lazy"><span class="lab">CAD preview, v4</span>
+    <span class="marker s" style="left:19.1rem; top:36.1rem">1</span><span class="marker s" style="left:49.6rem; top:36.1rem">2</span><span class="marker s" style="left:47.6rem; top:70.5rem">3</span></figure>
+  <div class="state-list only-m" style="padding:2.4rem 1.77rem 3rem" data-state-list>
+    <button type="button" aria-pressed="true">wrist band</button><p>8.6 mm on the wrist, shell and cradle floor together.</p>
+    <button type="button" aria-pressed="false">goggle cradle</button><p>On the strap at the back of your head; one press answers without looking.</p>
+    <button type="button" aria-pressed="false">collar clip</button><p>On a wetsuit collar or the neck of a top.</p>
+  </div>
+</section>
+
+<section class="sec" id="wb-colour" style="--sh:412; --mh:903">
+  <figure class="a pic none only-d" style="--x:402; --y:-41; --w:1108; --h:624; z-index:0"><img src="img/w-colour.webp" alt="The shell plain, the dots off" width="1500" height="844" loading="lazy"><span class="lab right">render v4</span></figure>
+  <h2 class="a noh h80" style="--x:96; --y:53; --w:614; z-index:1; --mp:7.1rem 1.77rem 0"><span class="only-d">one colour, all over</span><span class="only-m h60">one colour, all over</span></h2>
+  <div class="a noh copy" style="--x:98; --y:230; --w:401; z-index:1; --mp:1.4rem 1.77rem 0">
+    <p class="b20">Body and top are one colour. The dots shine through a skin of that same colour, so the shell looks plain until someone calls.</p>
+    <p class="b20 only-m">The shape is a pebble: 30 mm across and 8 mm at the crown, round so the whole top can turn.</p>
+    <p class="b20 only-m">The names read indoors, at dusk and in shade. In full sun, cup a hand over the shell.</p>
+    <p class="b20 only-m">Berry is the first colour. Others follow only if their glow reads well enough through the skin.</p>
+  </div>
+  <div class="wb-two only-m">
+    <figure class="f1"><img src="img/w-colour-off.webp" alt="The shell, dots off" width="560" height="700" loading="lazy"><span class="lab">render v4</span></figure>
+    <figure class="f2"><img src="img/w-colour-on.webp" alt="The shell, a name lit" width="560" height="700" loading="lazy"><span class="lab">render v4</span></figure>
+  </div>
+</section>
+
+<section class="sec m-night" id="wb-cable" style="--sh:682; --mh:828">
+  <h2 class="a noh h80" style="--x:96; --y:97; --w:710; --mp:7rem 1.77rem 0"><span class="only-d">a cable for the water</span><span class="only-m h60">a cable for the water</span></h2>
+  <p class="a noh b20" style="--x:98; --y:230; --w:506; --mp:1.3rem 1.77rem 0">A few centimetres of sea stop a radio signal, which is why nothing reaches the shell under the surface. So in the water your headset plugs into the cradle and the sound runs through a cable. On land the shell pairs with LE Audio earbuds. Older earbuds without LE Audio will not connect.</p>
+  <figure class="a pic none wb-pic" style="--x:812; --y:58; --w:626; --h:626"><img src="img/w-cable.webp" alt="On a goggle strap, where the cable would run" width="1250" height="1250" loading="lazy"><span class="lab">render v4, true scale</span></figure>
+</section>
+</main>
+<footer class="ft ">
+  <img class="bg" src="img/footer.webp" alt="" loading="lazy" width="1600" height="1067">
+  <div class="shade"></div>
+  <span class="lab top right">AI-generated scene</span>
+  <nav class="links" aria-label="Footer">
+    <a href="seashell.html">seashell</a>
+    <a href="workbench.html">workbench</a>
+    <a href="shorelist.html">shorelist</a>
+    <a href="support.html">support</a>
+    <a href="faqs.html">FAQs</a>
+  </nav>
+  <div class="col2">
+    <h2>join the waitlist</h2>
+    <p class="line"><span class="only-d">Launch news only, from Pau and William at TU Delft. Nothing is charged.</span><span class="only-m">Launch news only, from Pau and William at TU Delft.</span></p>
+    <form class="ft-form" novalidate>
+      <label class="sr" for="ft-email">your email</label>
+      <input id="ft-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="your email" required>
+      <p class="hp" aria-hidden="true"><label for="ft-website">Leave this empty</label><input id="ft-website" name="website" type="text" tabindex="-1" autocomplete="off"></p>
+      <button type="submit">join</button>
+    </form>
+    <p class="msg" role="status" aria-live="polite"></p>
+  </div>
+  <div class="col3">
+    <h2>legal</h2>
+    <div class="legal">
+      <a href="support.html#legal">terms of use</a>
+      <a href="support.html#legal">privacy policy</a>
+      <a href="#yourdata" data-yourdata>your data</a>
+    </div>
+  </div>
+  <a class="lock" href="index.html" aria-label="Seashell, home"><img src="brand/lockup-white.svg" alt="" width="391" height="70" loading="lazy"></a>
+  <small><span class="only-d">© 2026 Seashell. In development; pictures are renders, labelled AI scenes or stock footage.</span><span class="only-m">© 2026 Seashell</span></small>
+</footer>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="menu" hidden>
+  <div class="back" data-menu-close></div>
+  <div class="panel">
+    <button class="close" type="button" aria-label="close" data-menu-close>
+      <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M2 2l18 18M20 2L2 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <ul>
+      <li><a href="seashell.html">seashell</a></li>
+      <li><a href="workbench.html">workbench</a></li>
+      <li><a href="shorelist.html">shorelist</a></li>
+      <li><a href="journal/index.html">journal</a></li>
+      <li><a href="support.html">support</a></li>
+    </ul>
+  </div>
+</div>
+<dialog class="box" id="waitlist" aria-labelledby="soon-title">
+  <div class="in">
+    <div class="top">
+      <h2 class="h32" id="soon-title">coming soon</h2>
+      <button class="x" type="button" data-close aria-label="close"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    </div>
+    <p class="lead b18">Seashell is in development. Pre-order is planned for 2027, after the sea test and the supplier quotes. Leave your email and we tell you first.</p>
+    <form id="waitlist-form" method="post" novalidate>
+      <label for="email">email</label>
+      <div class="row">
+        <input class="field" id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="waitlist-msg" placeholder="name@example.com">
+        <button class="btn-buy" type="submit">join the waitlist</button>
+      </div>
+      <p class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></p>
+      <p class="msg" id="waitlist-msg" role="status" aria-live="polite"></p>
+    </form>
+    <noscript><p class="b16">The waitlist form needs JavaScript. Turn it on and reload this page to join.</p></noscript>
+    <p class="consent">Pau Adell and William Roskaer (Seashell, TU Delft) store your email, the time, your browser and the page you came from, only to send launch news. Nothing is charged or sold. To see or delete your data, write to <a href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>.</p>
+    <div class="done">
+      <h3 class="h24" tabindex="-1">You're on the list.</h3>
+      <p class="b18">We write when pre-order opens. Until then, nothing.</p>
+    </div>
+  </div>
+</dialog>
+<dialog class="box" id="yourdata" aria-labelledby="yd-title">
+  <div class="in">
+    <div class="top">
+      <h2 class="h32" id="yd-title">your data</h2>
+      <button class="x" type="button" data-close aria-label="close"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    </div>
+    <p class="b18">Pau Adell and William Roskaer (Seashell, TU Delft) store your email, the time, your browser and the page you came from, only to send launch news. Nothing is charged or sold.</p>
+    <p class="b18">To see or delete your data, write to <a href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>.</p>
+    <p class="consent">Page views and buy-now clicks are counted without your name. On this preview everything stays in your own browser.</p>
+  </div>
+</dialog>
+<script src="js/main.js"></script>
+</body>
+</html>

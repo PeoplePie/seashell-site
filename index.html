@@ -2,517 +2,194 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Seashell. Leave the phone. Stay reachable.</title>
-<meta name="description" content="Seashell is a cellular hub the size of a watch face, built for salt water. Calls, help and music in your Bluetooth earbuds on land and a waterproof wired headset in the water. €199 for the hub, pre-order opens 2027.">
-<meta name="theme-color" content="#050506">
-<meta property="og:title" content="Seashell. Leave the phone. Stay reachable.">
-<meta property="og:description" content="A cellular hub the size of a watch face, built for salt water. Calls, help and music: Bluetooth earbuds on land, a waterproof wired headset in the water. €199 for the hub, pre-order opens 2027.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://sportseashell.com/img/og.jpg">
-<link rel="canonical" href="https://sportseashell.com/">
-<meta property="og:url" content="https://sportseashell.com/">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Render of the Seashell hub on black: a smoked scalloped top over a berry-blue body, white dots reading MARTA CALLING">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seashell</title>
+<meta name="description" content="A 30 mm shell with its own connection: calls from the people you name, a help call that rings the contact you chose, music. Made for surf, swim and run. In development at TU Delft.">
+<meta property="og:title" content="Seashell">
+<meta property="og:description" content="A 30 mm shell with its own connection: calls from the people you name, a help call that rings the contact you chose, music. Made for surf, swim and run. In development at TU Delft.">
+<meta property="og:image" content="img/p-car-1.webp">
+<link rel="icon" href="brand/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="brand/apple-touch-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFU.woff2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..800&family=Instrument+Sans:ital,wdth,wght@0,75..100,400..700&display=swap">
 <link rel="stylesheet" href="css/site.css">
-<script>
-  // before first paint: the scroll story needs its tall layout only when motion is on
-  document.documentElement.classList.add("js");
-  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("motion");
-</script>
-<script src="js/config.js" defer></script>
-<script src="js/store.js" defer></script>
-<script src="js/hub.js" defer></script>
-<script src="js/dots.js" defer></script>
-<script src="js/main.js" defer></script>
-<script src="js/motion.js" defer></script>
+<link rel="stylesheet" href="css/pages.css">
+<script src="js/config.js"></script>
+<script src="js/store.js"></script>
 </head>
-<body>
+<body data-view="home">
+<div class="veil" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
-
-<div class="top">
-  <p class="banner">Waitlist open · pre-orders 2027</p>
-  <header class="bar">
-    <a class="wordmark" href="#main" aria-label="Seashell, to the top">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.4" fill="#2B4DFF"/><circle cx="12" cy="12" r="7.6" fill="#111111"/><circle cx="9.6" cy="12" r="1.1" fill="#fff"/><circle cx="12" cy="12" r="1.1" fill="#fff"/><circle cx="14.4" cy="12" r="1.1" fill="#fff"/></svg>
-      Seashell
-    </a>
-    <nav class="bar__nav" aria-label="Sections">
-      <a href="#how">How it works</a>
-      <a class="only-wide" href="#specs">Specifications</a>
-      <a class="only-wide" href="#faq">Questions</a>
-    </nav>
-    <a class="button button--small" href="#waitlist" data-buy="nav">Buy now <span class="nums">€199</span></a>
-  </header>
-</div>
-
-<main id="main">
-
-  <!-- 1. Without the phone: four dark beats, AI-generated stills with their 5 s clips (Higgsfield, step 410). -->
-  <section class="pain" id="without" aria-labelledby="pain-title" data-tone="black">
-    <div class="pain__stage">
-      <div class="pain__intro">
-        <h1>Seashell is a cellular hub for open water and trails.</h1>
-        <p><span class="nums">€199</span> for the hub. Pre-order opens in 2027.</p>
-        <h2 class="vh" id="pain-title">Training without your phone, today</h2>
-      </div>
-      <article class="beat" aria-labelledby="beat-1" style="--fx: 34%">
-        <div class="beat__media">
-          <img class="beat__img" src="img/pain-1-1280.webp" srcset="img/pain-1-720.webp 720w, img/pain-1-1280.webp 1280w, img/pain-1.webp 2400w" sizes="100vw" width="1280" height="724" alt="A surfer thrown off his board inside a breaking wave, grey water at dusk" fetchpriority="high" decoding="async">
-          <video class="beat__vid" muted playsinline loop preload="none" data-src="video/pain-1-web.mp4" aria-hidden="true" tabindex="-1"></video>
-        </div>
-        <div class="beat__text">
-          <h3 class="beat__line" id="beat-1">Out past the break.</h3>
-          <p class="beat__sub">Your phone is on the towel.</p>
-        </div>
-        <div class="ping" aria-hidden="true" data-ui><span class="ping__app">Phone</span><span class="ping__who">Marta</span><span class="ping__what">Missed call</span></div>
-        <p class="beat__label">AI-generated scene</p>
-      </article>
-      <article class="beat" aria-labelledby="beat-2" style="--fx: 32%">
-        <div class="beat__media">
-          <img class="beat__img" src="img/pain-2-1280.webp" srcset="img/pain-2-720.webp 720w, img/pain-2-1280.webp 1280w, img/pain-2.webp 2400w" sizes="100vw" width="1280" height="724" alt="A woman in a winter coat waits alone at the waterline, seen from behind, surfers far out" loading="lazy" decoding="async">
-          <video class="beat__vid" muted playsinline loop preload="none" data-src="video/pain-2-web.mp4" aria-hidden="true" tabindex="-1"></video>
-        </div>
-        <div class="beat__text">
-          <h3 class="beat__line" id="beat-2">She's on the beach.</h3>
-          <p class="beat__sub">You can't hear her.</p>
-        </div>
-        <div class="ping" aria-hidden="true" data-ui><span class="ping__app">Phone</span><span class="ping__who">Marta</span><span class="ping__what">3 missed calls</span></div>
-        <p class="beat__label">AI-generated scene</p>
-      </article>
-      <article class="beat" aria-labelledby="beat-3" style="--fx: 50%">
-        <div class="beat__media">
-          <img class="beat__img" src="img/pain-3-1280.webp" srcset="img/pain-3-720.webp 720w, img/pain-3-1280.webp 1280w, img/pain-3.webp 2400w" sizes="100vw" width="1280" height="714" alt="A phone ringing on a towel on wet sand while a swimmer is far out in a grey sea" loading="lazy" decoding="async">
-          <video class="beat__vid" muted playsinline loop preload="none" data-src="video/pain-3-web.mp4" aria-hidden="true" tabindex="-1"></video>
-        </div>
-        <div class="beat__text">
-          <h3 class="beat__line" id="beat-3">School is calling.</h3>
-          <p class="beat__sub">You're two kilometres out.</p>
-        </div>
-        <div class="ping" aria-hidden="true" data-ui><span class="ping__app">Phone</span><span class="ping__who">School office</span><span class="ping__what">Missed call</span></div>
-        <p class="beat__label">AI-generated scene</p>
-      </article>
-      <article class="beat" aria-labelledby="beat-4" style="--fx: 38%">
-        <div class="beat__media">
-          <img class="beat__img" src="img/pain-4-1280.webp" srcset="img/pain-4-720.webp 720w, img/pain-4-1280.webp 1280w, img/pain-4.webp 2400w" sizes="100vw" width="1280" height="724" alt="A runner on a wet coast road at night under one street lamp, a hand at her ear" loading="lazy" decoding="async">
-          <video class="beat__vid" muted playsinline loop preload="none" data-src="video/pain-4-web.mp4" aria-hidden="true" tabindex="-1"></video>
-        </div>
-        <div class="beat__text">
-          <h3 class="beat__line" id="beat-4">Your music stops.</h3>
-          <p class="beat__sub">The phone is out of range.</p>
-        </div>
-        <div class="ping" aria-hidden="true" data-ui><span class="ping__app">Bluetooth</span><span class="ping__who">Earbuds</span><span class="ping__what">Disconnected</span></div>
-        <p class="beat__label">AI-generated scene</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- 2. The reveal: the hub is the only light. A 48-frame Blender turntable (cad/render_web.py) scrubbed on a canvas,
-       then the page lights the real 31 x 11 display over the last frame (js/dots.js). -->
-  <section class="reveal hero" id="hub" aria-labelledby="reveal-title" data-tone="black">
-    <div class="reveal__stage">
-      <div class="reveal__pic">
-        <div class="rbox">
-          <img class="rbox__img" src="img/hub-on-1600.webp" srcset="img/hub-on-800.webp 800w, img/hub-on-1600.webp 1600w" sizes="(max-width: 47.99em) 190vw, 100vw" width="1600" height="1200" alt="Render of the Seashell hub on black: a smoked scalloped top with ribs over a berry-blue body with two strap lugs; white dots behind the top read MARTA CALLING" loading="lazy" decoding="async">
-        </div>
-      </div>
-      <div class="reveal__text">
-        <h2 id="reveal-title" class="dot">Leave the phone<span class="vh">.</span><br> Stay reachable</h2>
-        <p class="lead">A cellular hub the size of a watch face, built for salt water. Calls, help and music: your Bluetooth earbuds on land, a waterproof wired headset in the water.</p>
-        <p class="reveal__price"><span class="nums">€199</span> for the hub. Pre-order opens in 2027.</p>
-        <p class="acts"><a class="button" href="#waitlist" data-buy="hero">Buy now <span class="nums">€199</span></a><a class="button button--line" href="#how">How it works</a></p>
-        <p class="cap">Render from our CAD; the lit dots are drawn by this page. Final design, in development.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. Safety first, comfort as the consequence -->
-  <section class="safety" id="help" aria-labelledby="safety-title" data-tone="night">
-    <div class="safety__copy">
-      <h2 id="safety-title" class="display" data-rise>Hold the top to call for help</h2>
-      <p class="statement">Your position goes with the call <span class="chip" data-mini="HELP" data-big role="img" aria-label="the display reads HELP"></span>. Press the top to answer <span class="chip" data-mini="00:03" data-big role="img" aria-label="the display reads 00:03"></span>, and only the people you name get through <span class="chip" data-mini="MARTA" data-big role="img" aria-label="the display reads MARTA"></span>.</p>
-      <div class="safety__more">
-        <p>With the phone at home, your music plays in the earbuds you already own, a waterproof wired headset takes over in the water, and you send a message or a note by voice.</p>
-        <a class="button" href="#waitlist" data-buy="help">Buy now <span class="nums">€199</span></a>
-      </div>
-    </div>
-    <figure class="safety__hub">
-      <div class="rhub" data-dots="turn" data-show="hold">
-        <div class="rhub__in"><img src="img/seq/turn-47-1600.webp" srcset="img/seq/turn-47-800.webp 800w, img/seq/turn-47-1600.webp 1600w" sizes="(max-width: 47.99em) 170vw, 80vw" width="1600" height="1200" alt="Render of the hub with its display dark" loading="lazy" decoding="async"></div>
-      </div>
-      <figcaption class="cap">A held press: the bar fills, then CALLING HELP. Render from our CAD; the lit dots are drawn by this page.</figcaption>
-    </figure>
-  </section>
-
-  <!-- 4. Split screen: the same moment, without and with -->
-  <section class="split" id="moments" aria-labelledby="split-title" data-tone="deep">
-    <h2 id="split-title" class="display split__title" data-rise>The same moment, with Seashell</h2>
-    <div class="pair">
-      <div class="pair__pain">
-        <img class="pair__img" src="img/pain-3-1280.webp" srcset="img/pain-3-720.webp 720w, img/pain-3-1280.webp 1280w" sizes="(max-width: 55.99em) 100vw, 50vw" width="1280" height="714" alt="" loading="lazy" decoding="async">
-        <video class="pair__vid" muted playsinline loop preload="none" data-src="video/pain-3-web.mp4" aria-hidden="true" tabindex="-1"></video>
-        <div class="pair__words">
-          <h3 class="pair__big">School is calling.</h3>
-          <p class="pair__line">You're two kilometres out.</p>
-        </div>
-        <p class="beat__label">AI-generated scene</p>
-      </div>
-      <figure class="pair__fix">
-        <div class="shutter shutter--photo" style="--fx: 40%">
-          <img src="img/split-1-720.webp" srcset="img/split-1-720.webp 720w, img/split-1.webp 1344w" sizes="(max-width: 55.99em) 100vw, 50vw" width="1344" height="752" alt="A swimmer treading water at dawn presses the blue hub on her goggle strap with a wet finger; its display reads ANSWERED 00:03" loading="lazy" decoding="async">
-          <video class="scene__vid" muted playsinline loop preload="none" data-src="video/split-1-web.mp4" aria-hidden="true" tabindex="-1"></video>
-        </div>
-        <figcaption><span class="pair__line">It lights up on your goggle strap. You press the top and talk from the water.</span><span class="cap">AI-generated scene, based on renders of our CAD.</span></figcaption>
-      </figure>
-    </div>
-    <div class="pair">
-      <div class="pair__pain">
-        <img class="pair__img" src="img/pain-2-1280.webp" srcset="img/pain-2-720.webp 720w, img/pain-2-1280.webp 1280w" sizes="(max-width: 55.99em) 100vw, 50vw" width="1280" height="724" alt="" loading="lazy" decoding="async" style="--fx: 32%">
-        <video class="pair__vid" muted playsinline loop preload="none" data-src="video/pain-2-web.mp4" aria-hidden="true" tabindex="-1"></video>
-        <div class="pair__words">
-          <h3 class="pair__big">She's on the beach.</h3>
-          <p class="pair__line">You can't hear her.</p>
-        </div>
-        <p class="beat__label">AI-generated scene</p>
-      </div>
-      <figure class="pair__fix">
-        <div class="shutter shutter--photo" style="--fx: 80%">
-          <img src="img/split-2-720.webp" srcset="img/split-2-720.webp 720w, img/split-2.webp 1344w" sizes="(max-width: 55.99em) 100vw, 50vw" width="1344" height="752" alt="Close-up of a swimmer's head at the waterline; the blue hub on her goggle strap reads MARTA CALLING, a bone-conduction pod on her cheekbone" loading="lazy" decoding="async">
-          <video class="scene__vid" muted playsinline loop preload="none" data-src="video/split-2-web.mp4" aria-hidden="true" tabindex="-1"></video>
-        </div>
-        <figcaption><span class="pair__line">Her name lights up at your temple. You choose when to swim in.</span><span class="cap">AI-generated scene, based on renders of our CAD.</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- 5. How it works: one pinned block, the drawing performs each move. Hold first: safety first. -->
-  <section class="how" id="how" aria-labelledby="how-title" data-tone="slate">
-    <div class="how__pin">
-      <div class="how__copy">
-        <h2 id="how-title" class="display">The whole top is the button</h2>
-        <p class="how__lead">You use it without looking, with wet hands or gloves on.</p>
-        <ol class="steps">
-          <li class="step" data-step="hold">
-            <h3 class="verb">Hold</h3>
-            <p>Hold it to call for help. Your position goes with the call.</p>
-          </li>
-          <li class="step" data-step="press">
-            <h3 class="verb">Press</h3>
-            <p>Press the top to answer or hang up. It moves 0.28 mm under your finger, and you feel the click through a glove.</p>
-          </li>
-          <li class="step" data-step="turn">
-            <h3 class="verb">Turn</h3>
-            <p>Turn it for volume, the next track or your PIN. Twenty-four clicks a turn, so you count by feel.</p>
-          </li>
-          <li class="step" data-step="clip">
-            <h3 class="verb">Clip</h3>
-            <p>Two lugs take any 20 mm strap: your watch strap, a goggle strap, a collar, a bag. The display stays dark until someone calls.</p>
-          </li>
-        </ol>
-      </div>
-      <div class="how__stage">
-        <div class="hubbox how__hub" data-hub="how" data-label="Drawing of the hub from above, performing the move named next to it.">
-          <img src="img/hub-drawing.svg" width="530" height="530" alt="" loading="lazy" decoding="async">
-        </div>
-        <p class="cap how__cap">Drawing to scale from our design files, seen from above.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Triathlon: swim to run in one move -->
-  <section class="tri" id="triathlon" aria-labelledby="tri-title" data-tone="fog">
-    <div class="tri__stage">
-      <div class="tri__head">
-        <h2 id="tri-title" class="display" data-rise>Swim, then run</h2>
-        <p class="tri__lead">No stop for the phone: the hub moves from your goggle strap to your wrist.</p>
-      </div>
-      <div class="tri__window"><div class="tri__track">
-        <figure class="leg leg--wide">
-          <img src="img/tri-swim-720.webp" srcset="img/tri-swim-720.webp 720w, img/tri-swim.webp 1344w" sizes="(max-width: 55.99em) 92vw, 56vw" width="1344" height="752" alt="A lone swimmer in a mint cap far out in a calm grey North Sea at dawn, a harbour pier on the horizon" loading="lazy" decoding="async">
-          <figcaption><h3>Swim</h3><p>On the goggle strap, with a wired headset on the pads.</p></figcaption>
-        </figure>
-        <figure class="leg">
-          <div class="leg__media" style="--fy: 0%"><img src="img/tri-t1-480.webp" srcset="img/tri-t1-480.webp 480w, img/tri-t1.webp 880w" sizes="(max-width: 55.99em) 92vw, 30vw" width="880" height="1100" alt="A triathlete runs out of the sea, wetsuit peeled to the waist, goggles in hand; the blue hub on her wrist reads MUSIC ON" loading="lazy" decoding="async">
-            <video class="scene__vid" muted playsinline loop preload="none" data-src="video/tri-t1-web.mp4" aria-hidden="true" tabindex="-1"></video></div>
-          <figcaption><h3>Transition</h3><p>Off the goggle strap, onto your watch strap.</p></figcaption>
-        </figure>
-        <figure class="leg">
-          <img src="img/tri-run-480.webp" srcset="img/tri-run-480.webp 480w, img/tri-run.webp 880w" sizes="(max-width: 55.99em) 92vw, 30vw" width="880" height="1100" alt="The same athlete runs a dune path at sunrise with earbuds in and the blue hub on her wrist" loading="lazy" decoding="async">
-          <figcaption><h3>Run</h3><p>Bluetooth to your earbuds. The phone is still at home.</p></figcaption>
-        </figure>
-        <figure class="leg leg--hub">
-          <img src="img/hub-studio-on-720.webp" width="720" height="720" alt="Render of the hub in berry blue with its two strap lugs, display lit MARTA CALLING" loading="lazy" decoding="async">
-          <figcaption><h3>One hub</h3><p>The same two lugs fit a goggle strap, a watch strap or a collar.</p></figcaption>
-        </figure>
-      </div></div>
-      <div class="tri__rail" aria-hidden="true">
-        <span class="tri__from">Goggle strap</span>
-        <span class="tri__line"><svg class="tri__puck" viewBox="0 0 56 56"><circle cx="28" cy="28" r="27" fill="#2B4DFF"/><circle cx="28" cy="28" r="20" fill="#131417"/><circle cx="22" cy="28" r="2.4" fill="#fff"/><circle cx="28" cy="28" r="2.4" fill="#fff"/><circle cx="34" cy="28" r="2.4" fill="#fff"/></svg></span>
-        <span class="tri__to">Wrist</span>
-      </div>
-      <p class="cap tri__cap">First three pictures: AI-generated scenes, based on renders of our CAD. Last picture: render from our CAD.</p>
-    </div>
-  </section>
-
-  <!-- 7. Use cases -->
-  <section class="uses" id="uses" aria-labelledby="uses-title" data-tone="mist">
-    <h2 id="uses-title" class="display uses__title" data-rise>Where it sits, and how you hear it</h2>
-    <div class="uses__field">
-      <figure class="print"><img src="img/use-water-480.webp" srcset="img/use-water-480.webp 480w, img/use-water.webp 880w" sizes="(max-width: 55.99em) 92vw, 30vw" width="880" height="1100" alt="A swimmer breathing to the side at sunrise, the blue hub on her goggle strap" loading="lazy" decoding="async"><figcaption>Open water, on the goggle strap</figcaption></figure>
-      <figure class="print"><img src="img/use-sup-480.webp" srcset="img/use-sup-480.webp 480w, img/use-sup.webp 880w" sizes="(max-width: 55.99em) 92vw, 30vw" width="880" height="1100" alt="A woman on a stand-up paddle board in the morning mist; the hub on her wrist reads HOME CALLING" loading="lazy" decoding="async"><figcaption>Stand-up paddle, on the wrist</figcaption></figure>
-      <figure class="print"><img src="img/use-ski-480.webp" srcset="img/use-ski-480.webp 480w, img/use-ski.webp 880w" sizes="(max-width: 55.99em) 92vw, 30vw" width="880" height="1100" alt="A ski tourer on a ridge at dawn turns the hub's top with a thick glove; the display shows the volume" loading="lazy" decoding="async"><figcaption>Ski tour, turned with a glove on</figcaption></figure>
-    </div>
-    <div class="table-wrap">
-      <table class="sports" aria-labelledby="uses-title">
-        <thead><tr><th scope="col">Sport</th><th scope="col">Where it sits</th><th scope="col">How you hear it</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Open water</th><td>Goggle strap or wetsuit collar</td><td>A waterproof wired headset on the pads</td></tr>
-          <tr><th scope="row">Triathlon</th><td>Goggle strap for the swim, wrist for the run</td><td>Wired in the water, Bluetooth on land</td></tr>
-          <tr><th scope="row">Surf</th><td>Wetsuit collar</td><td>Wired in the lineup, Bluetooth on the beach</td></tr>
-          <tr><th scope="row">Stand-up paddle</th><td>Wrist or a vest strap</td><td>Bluetooth earbuds, or wired if you fall in a lot</td></tr>
-          <tr><th scope="row">Trail run</th><td>Wrist or a pack strap</td><td>Bluetooth earbuds</td></tr>
-          <tr><th scope="row">Ski tour</th><td>Wrist, over the jacket cuff</td><td>Bluetooth earbuds under the hood; turn the top with gloves on</td></tr>
-        </tbody>
-      </table>
-      <p class="cap uses__note">The three pictures are AI-generated scenes, based on renders of our CAD.</p>
-    </div>
-  </section>
-
-  <!-- 8. Inside: the exploded render + three numbers -->
-  <section class="inside" id="inside" aria-labelledby="inside-title" data-tone="dawn">
-    <figure class="xray">
-      <img src="img/xray-1200.webp" srcset="img/xray-720.webp 720w, img/xray-1200.webp 1200w" sizes="(max-width: 55.99em) 92vw, 42vw" width="1200" height="1200" alt="Exploded render of the hub on black: the smoked scalloped top, the magnet ring, the clear window over the lit LED dots, the board, the cell and the berry-blue body" loading="lazy" decoding="async">
-      <figcaption class="cap">Exploded render from our CAD. From the top: the turning top, the 24-pole magnet ring that makes it click, three snap domes, the clear window over the 31 × 11 LED dots, the ring that holds the top on, the board, the cell, and the body with its five gold pads.</figcaption>
-    </figure>
-    <div class="ledger">
-      <h2 id="inside-title" class="display" data-rise>What fits inside 42 mm</h2>
-      <dl class="figs">
-        <div class="fig"><dt><span class="fig__n nums">42</span><span class="fig__d nums"><span class="vh">.</span>0</span></dt><dd>mm across, the size of a watch face. 50 mm from lug tip to lug tip.</dd></div>
-        <div class="fig"><dt><span class="fig__n nums">9</span><span class="fig__d nums"><span class="vh">.</span>86</span></dt><dd>mm at the top of the dome. Estimate: 10.19 mm at worst, designed to a 10.5 mm limit. An Apple Watch SE 3 case is 10.7 mm.</dd></div>
-        <div class="fig"><dt><span class="fig__n nums">4</span><span class="fig__d nums"><span class="vh">.</span>1</span></dt><dd>hours of calls over Bluetooth on one charge. Estimate from the parts, not measured.</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- 9. Colours: six renders, and the live display over them -->
-  <section class="colours" id="colours" aria-labelledby="colours-title" data-tone="paper">
-    <figure class="colours__hub">
-      <div class="rhub rhub--studio" data-dots="studio" data-show="name">
-        <div class="rhub__in"><img class="colours__img" src="img/col-berry-960.webp" srcset="img/col-berry-600.webp 600w, img/col-berry-960.webp 960w" sizes="(max-width: 47.99em) 92vw, 46vw" width="960" height="960" alt="Render of the hub in berry blue" loading="lazy" decoding="async"></div>
-      </div>
-      <figcaption class="cap">Renders from our CAD; the lit dots are drawn by this page. Final design, in development.</figcaption>
-    </figure>
-    <div class="colours__side">
-      <h2 id="colours-title" class="display" data-rise>Choose the body colour</h2>
-      <fieldset class="swatches">
-        <legend>Six body colours. The top is black on all six.</legend>
-        <label class="swatch"><input type="radio" name="body" value="berry" checked><span class="swatch__dot" style="--c:#2B4DFF"></span><span class="swatch__name">Berry blue</span></label>
-        <label class="swatch"><input type="radio" name="body" value="watermelon"><span class="swatch__dot" style="--c:#FF2E63"></span><span class="swatch__name">Watermelon</span></label>
-        <label class="swatch"><input type="radio" name="body" value="ocean"><span class="swatch__dot" style="--c:#FF6A00"></span><span class="swatch__name">Ocean orange</span></label>
-        <label class="swatch"><input type="radio" name="body" value="mint"><span class="swatch__dot" style="--c:#4FF0BF"></span><span class="swatch__name">Mint</span></label>
-        <label class="swatch"><input type="radio" name="body" value="violet"><span class="swatch__dot" style="--c:#8A3FFC"></span><span class="swatch__name">Violet</span></label>
-        <label class="swatch"><input type="radio" name="body" value="white"><span class="swatch__dot" style="--c:#F7F7F2"></span><span class="swatch__name">White</span></label>
-      </fieldset>
-      <div class="live">
-        <label for="who-name">Who gets through? Type a name and the display announces the call.</label>
-        <input class="field" id="who-name" type="text" maxlength="8" autocomplete="off" spellcheck="false" placeholder="Marta">
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. Specifications -->
-  <section class="specs" id="specs" aria-labelledby="specs-title" data-tone="paper">
-    <div class="specs__head">
-      <h2 id="specs-title" class="display" data-rise>Specifications</h2>
-      <p>Final design, in development. Figures marked estimate or target are not yet measured.</p>
-    </div>
-    <div class="specs__cols">
-      <table class="spec">
-        <caption>The body</caption>
-        <tbody>
-          <tr><th scope="row">Diameter</th><td>Ø42 mm, 50 mm from lug tip to lug tip</td></tr>
-          <tr><th scope="row">Thickness</th><td>9.86 mm at the top of the dome <span class="note">Estimate; 10.19 mm at worst</span></td></tr>
-          <tr><th scope="row">Weight</th><td>About 26 g <span class="note">Estimate; target under 30 g</span></td></tr>
-          <tr><th scope="row">Top</th><td>The whole top presses and turns, 24 clicks a turn. A smoked black dome with a scalloped rim and ribs. <span class="note">Number of lobes being chosen</span></td></tr>
-          <tr><th scope="row">Display</th><td>31 × 11 white LED dots behind the smoked top: two lines of text, dark when there is nothing to say</td></tr>
-          <tr><th scope="row">Strap</th><td>Two lugs for any 20 mm strap</td></tr>
-          <tr><th scope="row">Audio and charging</th><td>Five flush magnetic pads at 9 o'clock for a wired headset and the charger. An adapter to a 3.5 mm plug comes in the box.</td></tr>
-        </tbody>
-      </table>
-      <table class="spec">
-        <caption>The connection</caption>
-        <tbody>
-          <tr><th scope="row">Mobile network</th><td>Its own eSIM (LTE-M); calls go over the internet <span class="note">Data plan priced separately before pre-order</span></td></tr>
-          <tr><th scope="row">Location</th><td>GPS (GNSS); your position goes with a call for help</td></tr>
-          <tr><th scope="row">Bluetooth</th><td>Bluetooth 5.4 to your earbuds or headphones on land</td></tr>
-          <tr><th scope="row">Voice</th><td>Call, play, note. Only the people you name get through.</td></tr>
-          <tr><th scope="row">Water</th><td>IPX8: 3 m for 2 h in salt water, plus a 96 h salt-spray test <span class="note">Target, not yet certified</span></td></tr>
-          <tr><th scope="row">Battery</th><td>About 4 h of calls per charge; music from the hub's own memory lasts much longer <span class="note">Estimate, not measured</span></td></tr>
-          <tr><th scope="row">Price</th><td>€199 for the hub. The eSIM plan and a water headset cost extra.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- 11. Price as one sentence -->
-  <section class="price" id="price" aria-labelledby="price-title" data-tone="paper">
-    <h2 id="price-title" class="price__line dot" data-rise>The hub is <span class="price__fig nums">€199</span></h2>
-    <p class="price__when">Pre-order opens in 2027. Today it is a waitlist.</p>
-    <div class="price__row">
-      <p>Hardware only, and nothing to pay now. The eSIM data plan costs extra and gets its price before pre-order. A waterproof headset for the water is not included. Leave your email and we write when pre-order opens.</p>
-      <a class="button button--big" href="#waitlist" data-buy="price">Buy now <span class="nums">€199</span></a>
-    </div>
-  </section>
-
-  <!-- 12. Questions -->
-  <section class="faq" id="faq" aria-labelledby="faq-title" data-tone="paper">
-    <h2 id="faq-title" class="display" data-rise>Questions we were asked</h2>
-    <div class="qs">
-      <details name="faq" open>
-        <summary>Why not a cellular Apple Watch?</summary>
-        <p>A cellular watch costs like a phone (SE 3 cellular €329, Ultra 3 €899), does more than you need, ties you to one phone brand and fails wet: the touchscreen stops working and the microphone floods. Seashell works in salt water by clicks, costs €199 for the hub, and works with any phone and, on land, any Bluetooth earbuds.</p>
-      </details>
-      <details name="faq">
-        <summary>Does it work under water?</summary>
-        <p>Radio does not travel through water, for any device. Seashell is worn above the waterline, on a collar, a cap, a goggle strap or the wrist, and reconnects when it surfaces. In the water the sound goes through a waterproof wired headset on the magnetic pads. We test the link at sea in January 2027 and publish what we find.</p>
-      </details>
-      <details name="faq">
-        <summary>I already have a Garmin and AirPods.</summary>
-        <p>Keep them. Seashell adds what they cannot do: answer and call wet, be reachable with the phone at home, sound in the water. Bluetooth to your earbuds on land, cable in the water, next to the watch you train with.</p>
-      </details>
-      <details name="faq">
-        <summary>I train to disconnect. Will people disturb me?</summary>
-        <p>Only the people you name get through. Seashell says who is calling and shows the name on two lines of text; there is no touchscreen and no feed to pull you in. Everyone else waits until you are back.</p>
-      </details>
-      <details name="faq">
-        <summary>Voice only?</summary>
-        <p>No. The whole top is a button you press without looking, with gloves, wet. Press it to answer, turn it to skip, set the volume or type a PIN. Voice is there for when your hands are busy.</p>
-      </details>
-      <details name="faq">
-        <summary>Why €199?</summary>
-        <p>It replaces the phone in your sport and the cellular watch you would otherwise buy, for less than either. €199 is the hub alone, and nothing is paid before pre-order opens. The eSIM data plan is priced separately and published before pre-order. A waterproof headset for the water is not included.</p>
-      </details>
-      <details name="faq">
-        <summary>How long does it last?</summary>
-        <p>About 4 hours of calls over Bluetooth per charge, a little more with a wired headset. Music played from the hub's own memory lasts much longer; streamed music lasts about as long as a call. These are our estimates from the parts, not measurements. We publish measured hours after the prototype tests.</p>
-      </details>
-      <details name="faq">
-        <summary>When can I buy it?</summary>
-        <p>Pre-order opens in 2027, after the sea test and the supplier quotes. The waitlist takes an email only; nothing is charged.</p>
-      </details>
-      <details name="faq">
-        <summary>Is it certified?</summary>
-        <p>Not yet. The design target is IPX8: 3 m for 2 h in salt water, plus a 96 h salt-spray test. CE marking comes before the first batch.</p>
-      </details>
-      <details name="faq">
-        <summary>What happens to my email?</summary>
-        <p>William Roskaer and Pau Adell (Seashell, TU Delft) store it with the time you signed up, your browser and the page you came from, only to send launch news. It sits on Supabase servers in the EU (Ireland), on the basis of your consent, for at most two years. Nothing is sold or passed on. To see or delete your data, write to <a href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>. You can also complain to your data protection authority.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- 13. Who is building it, and the athletes' own words -->
-  <section class="team" id="team" aria-labelledby="team-title" data-tone="paper">
-    <div class="team__intro">
-      <h2 id="team-title" class="display" data-rise>Who is building it</h2>
-      <p>Seashell is William Roskaer and Pau Adell, in TU Delft's Build Your Start-up course. Before drawing anything we asked 26 athletes how they train without a phone. Six of their answers are here, without names.</p>
-      <p class="cap">Interviews in September and October 2026. Quotes from Spanish and Catalan are our translations; fillers are left out, … marks words cut and [ ] words added.</p>
-    </div>
-    <div class="voices">
-      <div class="voices__who">
-        <button class="voice" type="button" aria-pressed="true"
-          data-quote="“I carry it just in case, for safety, to be connected, in case someone has something urgent or I need to call someone. But not to use it.”"
-          data-src="A runner who also boxes. Interview, 19 October 2026, translated from Spanish.">
-          <span class="voice__name">Runner</span><span class="voice__role">also boxes, some water sports</span>
-        </button>
-        <button class="voice" type="button" aria-pressed="false"
-          data-quote="“I would prefer not to have my phone surfing or running, because it's big and it disturbs me. But I sometimes have to, because I want to listen to music or I want to be reachable …”"
-          data-src="A runner, 27, who runs with a phone waistband. Interview, 20 October 2026.">
-          <span class="voice__name">Runner, 27</span><span class="voice__role">runs with a phone waistband</span>
-        </button>
-        <button class="voice" type="button" aria-pressed="false"
-          data-quote="“For running or any sort of walk or anything like that in nature, I don't want to take my phone with me. But I'm scared, so I always take it for safety.”"
-          data-src="A climber, 23, who boulders and runs in nature. Interview, 20 October 2026.">
-          <span class="voice__name">Climber, 23</span><span class="voice__role">boulders, runs in nature</span>
-        </button>
-        <button class="voice" type="button" aria-pressed="false"
-          data-quote="“If you give me the call out, for safety, you can cut the rest to the minimum. … If I'm out six hours, the battery can't die at hour two.”"
-          data-src="A freediver who also ski tours. Interview, 20 October 2026, translated from Catalan.">
-          <span class="voice__name">Freediver</span><span class="voice__role">also ski tours, out alone for hours</span>
-        </button>
-        <button class="voice" type="button" aria-pressed="false"
-          data-quote="“I keep it [the watch's mobile connection] switched off … but I know I have no phone. If for some reason I have to call, I have to stop and switch it on.”"
-          data-src="A swimmer, 53, who also cycles and runs, with an Apple Watch. Interview, 20 October 2026, translated from Catalan.">
-          <span class="voice__name">Swimmer, 53</span><span class="voice__role">also cycles, runs; Apple Watch</span>
-        </button>
-        <button class="voice" type="button" aria-pressed="false"
-          data-quote="Useful to know when someone is calling, but not for actually talking or operating. The screen is hard, impossible to operate with water or wetsuit gloves."
-          data-src="Our notes of conversations with three groups of intermediate surfers at a surf camp, October 2026, about their smartwatches. Notes, not their exact words.">
-          <span class="voice__name">Three surf-camp groups</span><span class="voice__role">intermediate surfers, on their smartwatches</span>
-        </button>
-      </div>
-      <figure class="voices__say" aria-live="polite">
-        <blockquote><p class="voices__quote">“I carry it just in case, for safety, to be connected, in case someone has something urgent or I need to call someone. But not to use it.”</p></blockquote>
-        <figcaption class="voices__src">A runner who also boxes. Interview, 19 October 2026, translated from Spanish.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-</main>
-
-<footer class="foot" data-tone="berry">
-  <div class="foot__top">
-    <p>Seashell by swellmate. William Roskaer and Pau Adell, contact <a href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>.</p>
-    <p>TU Delft, Build Your Start-up, 2026. Designed in Delft.</p>
-    <a class="link" href="#main">Back to the top</a>
-  </div>
-  <div class="foot__mark">
-    <p class="foot__name" aria-hidden="true">Seashell</p>
-    <a class="button button--light button--big" href="#waitlist" data-buy="footer">Buy now <span class="nums">€199</span></a>
-  </div>
-  <nav class="foot__links" aria-label="Footer">
-    <a class="link" href="#hub">The hub</a>
-    <a class="link" href="#how">How it works</a>
-    <a class="link" href="#uses">Sports</a>
-    <a class="link" href="#specs">Specifications</a>
-    <a class="link" href="#price">Price</a>
-    <a class="link" href="#faq">Questions</a>
-    <a class="link" href="#waitlist" data-buy="footer-link">Waitlist</a>
+<header class="hd">
+  <nav class="nav" aria-label="Site">
+    <a href="seashell.html" >seashell</a>
+    <a href="workbench.html" >workbench</a>
+    <a href="shorelist.html" >shorelist</a>
+    <a href="support.html" >support</a>
   </nav>
-  <p class="foot__small">Waitlist only: this site takes no payment and places no order. Pre-order opens in 2027. Your email, the time you signed up, your browser and the page you came from are stored to send launch news and are deleted on request. The hub on this page is rendered or drawn from our design files, and its lit dots are drawn by the page; the scenes are AI-generated from those renders. None is a photograph. © 2026 Seashell.</p>
-</footer>
+  <a class="logo" href="index.html" aria-label="Seashell, home"><img src="brand/lockup.svg" alt="" width="156" height="28"></a>
+  <a class="buy" href="#waitlist" data-buy="nav">buy now</a>
+</header>
+<div class="mh">
+  <div class="mbar" aria-live="polite"><span>designed in Delft</span><span hidden>waitlist only, nothing charged</span></div>
+  <div class="mhead">
+    <button class="burger" type="button" aria-label="menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 18" aria-hidden="true"><path d="M1 1h22M1 9h22M1 17h22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <a class="logo" href="index.html" aria-label="Seashell, home"><img src="brand/lockup.svg" alt="" width="156" height="28"></a>
+    <a class="buy" href="#waitlist" data-buy="nav">buy</a>
+  </div>
+</div>
+<main id="main" class="site">
+<section class="sec" id="hero" style="--sh:898; --mh:728">
+  <div class="hero-poster" data-film="hero">
+    <img class="only-d" src="img/home-hero.webp" alt="A surfer from behind, the shell on his wetsuit collar with NOOR lit in its dots" width="1920" height="1080" fetchpriority="high">
+    <img class="only-m" src="img/home-hero-m.webp" alt="The same surfer, cut upright for the phone" width="720" height="1280">
+    <video class="hero-film" data-hero autoplay muted loop playsinline preload="auto" aria-label="Silent film, 19 seconds: a swimmer looks back at a dog on her towel, a runner fights his zip, a surfer takes a wave; then NOOR, MUM and JO light up on their shells, one press each, and the swimmer swims on. Everyone else stays on shore.">
+      <source src="media/hero-loop-m.mp4" type="video/mp4" media="(max-width: 989px)">
+      <source src="media/hero-loop.mp4" type="video/mp4">
+    </video>
+    <span class="lab">AI-generated clips and scenes · stock footage, Pexels</span>
+  </div>
+</section>
 
-<dialog class="soon" id="waitlist" aria-labelledby="soon-title">
-  <div class="soon__inner">
-    <div class="soon__top">
-      <h2 id="soon-title">Coming soon</h2>
-      <a class="soon__close" href="#price" data-close aria-label="Close">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2l12 12M14 2L2 14" stroke="#111111" stroke-width="2" stroke-linecap="round"/></svg>
-      </a>
-    </div>
-    <p class="soon__text">Seashell is in development. Pre-order opens in 2027, after the sea test and the supplier quotes. Leave your email and we tell you first; you are also first in line.</p>
-    <form id="waitlist-form" method="post" novalidate>
-      <label for="email">Email</label>
-      <div class="soon__row">
-        <input class="field" id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="waitlist-msg" placeholder="name@example.com">
-        <button class="button" type="submit">Join the waitlist</button>
-      </div>
-      <p class="soon__hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></p>
-      <p class="soon__msg" id="waitlist-msg" role="status" aria-live="polite"></p>
+<section class="sec door dark" id="door-1" style="--sh:902; --mh:724">
+  <div class="a noh copy" style="--x:176; --y:296; --w:430; --hw:424; --pw:429">
+    <h2 class="h60 m40">a shell that takes the call</h2>
+    <p class="b20 only-d">Seashell is a 30 mm shell with its own connection. When one of your people calls, their name lights up and one press answers.</p>
+    <a class="cta" href="seashell.html">explore seashell <svg class="arw" viewBox="0 0 22 12" aria-hidden="true"><path d="M1 6h18.5M14.5 1.5 20 6l-5.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="a pic-side" style="--x:628; --y:41; --w:659; --h:824">
+    <img src="img/home-door1.webp" alt="The shell from three quarters, a name lit in its hidden dots" width="1100" height="1375" loading="lazy">
+    <span class="lab">render v4</span>
+  </div>
+</section>
+
+<section class="sec door" id="door-2" style="--sh:902; --mh:868">
+  <div class="a noh copy" style="--x:818; --y:311; --w:372; --hw:372; --pw:372">
+    <h2 class="h60">made for surf, swim and run</h2>
+    <p class="b20">Leave the phone in the car, on the towel or at home.</p>
+    <a class="cta only-d" href="#waitlist" data-buy="door-2">buy now <svg class="arw" viewBox="0 0 22 12" aria-hidden="true"><path d="M1 6h18.5M14.5 1.5 20 6l-5.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="a pic-side" style="--x:0; --y:0; --w:720; --h:902">
+    <img class="only-d" src="img/home-door2.webp" alt="A swimmer from behind in the sea at sunrise, MUM on the shell on her goggle strap" width="900" height="1125" loading="lazy">
+    <img class="only-m" src="img/home-door2-m.webp" alt="The same swimmer, cut upright" width="800" height="1509" loading="lazy">
+    <span class="lab">AI-generated scene (from the CAD model)</span>
+  </div>
+  <a class="cta only-m cta-m" href="#waitlist" data-buy="door-2">buy now <svg class="arw" viewBox="0 0 22 12" aria-hidden="true"><path d="M1 6h18.5M14.5 1.5 20 6l-5.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</section>
+
+<section class="sec door over centre" id="door-3" style="--sh:894; --mh:580">
+  <div class="a noh copy" style="--x:176; --y:307; --w:503; --hw:503; --pw:429">
+    <h2 class="h60"><span class="only-d">everyone else stays on shore</span><span class="only-m">shorelist</span></h2>
+    <p class="b20"><span class="only-d">Shorelist lets up to five people reach you. Turn the shell once round before you go in, and only their names light up.</span><span class="only-m">Name up to five people. Only they get through; everyone else stays on shore.</span></p>
+    <a class="cta" href="shorelist.html">see shorelist <svg class="arw" viewBox="0 0 22 12" aria-hidden="true"><path d="M1 6h18.5M14.5 1.5 20 6l-5.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="a pic-side" style="--x:720; --y:-2; --w:720; --h:900">
+    <img class="only-d" src="img/home-door3.webp" alt="A surfer rides a small clean wave, far out" width="1000" height="1250" loading="lazy">
+    <img class="only-m" src="img/home-door3-m.webp" alt="A surfer on a small clean wave" width="900" height="675" loading="lazy">
+    <span class="lab">stock footage, Pexels</span>
+  </div>
+</section>
+
+<section class="sec door grey" id="door-4" style="--sh:902; --mh:652">
+  <div class="a noh copy" style="--x:176; --y:301; --w:432; --hw:432; --pw:372">
+    <h2 class="h60 m40"><span class="only-d">on the workbench at TU Delft</span><span class="only-m">made at TU Delft</span></h2>
+    <p class="b20 only-d">Four versions took a 42 mm hub down to a 30 mm shell.</p>
+    <a class="cta" href="workbench.html"><span class="only-d">see the workbench</span><span class="only-m">look inside</span> <svg class="arw" viewBox="0 0 22 12" aria-hidden="true"><path d="M1 6h18.5M14.5 1.5 20 6l-5.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="a pic-side" style="--x:628; --y:41; --w:659; --h:824">
+    <img class="only-d" src="img/home-door4.webp" alt="The shell taken apart: cap, window, board, cell and body in a column" width="1000" height="1250" loading="lazy">
+    <img class="only-m" src="img/home-door4-m.webp" alt="The shell taken apart, upright" width="700" height="1244" loading="lazy">
+    <span class="lab">render v4</span>
+  </div>
+</section>
+</main>
+<footer class="ft ">
+  <img class="bg" src="img/footer.webp" alt="" loading="lazy" width="1600" height="1067">
+  <div class="shade"></div>
+  <span class="lab top right">AI-generated scene</span>
+  <nav class="links" aria-label="Footer">
+    <a href="seashell.html">seashell</a>
+    <a href="workbench.html">workbench</a>
+    <a href="shorelist.html">shorelist</a>
+    <a href="support.html">support</a>
+    <a href="faqs.html">FAQs</a>
+  </nav>
+  <div class="col2">
+    <h2>join the waitlist</h2>
+    <p class="line"><span class="only-d">Launch news only, from Pau and William at TU Delft. Nothing is charged.</span><span class="only-m">Launch news only, from Pau and William at TU Delft.</span></p>
+    <form class="ft-form" novalidate>
+      <label class="sr" for="ft-email">your email</label>
+      <input id="ft-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="your email" required>
+      <p class="hp" aria-hidden="true"><label for="ft-website">Leave this empty</label><input id="ft-website" name="website" type="text" tabindex="-1" autocomplete="off"></p>
+      <button type="submit">join</button>
     </form>
-    <noscript><p class="soon__text">The waitlist form needs JavaScript. Turn it on and reload this page to join.</p></noscript>
-    <p class="soon__consent">William Roskaer and Pau Adell (Seashell, TU Delft) store your email, the time, your browser and the page you came from, only to send launch news. Nothing is charged or sold. To see or delete your data, write to <a href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>.</p>
-    <div class="soon__done">
-      <h3 tabindex="-1">You're on the list.</h3>
-      <p>We write when pre-order opens in 2027. Until then, nothing.</p>
+    <p class="msg" role="status" aria-live="polite"></p>
+  </div>
+  <div class="col3">
+    <h2>legal</h2>
+    <div class="legal">
+      <a href="support.html#legal">terms of use</a>
+      <a href="support.html#legal">privacy policy</a>
+      <a href="#yourdata" data-yourdata>your data</a>
+    </div>
+  </div>
+  <a class="lock" href="index.html" aria-label="Seashell, home"><img src="brand/lockup-white.svg" alt="" width="391" height="70" loading="lazy"></a>
+  <small><span class="only-d">© 2026 Seashell. In development; pictures are renders, labelled AI scenes or stock footage.</span><span class="only-m">© 2026 Seashell</span></small>
+</footer>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="menu" hidden>
+  <div class="back" data-menu-close></div>
+  <div class="panel">
+    <button class="close" type="button" aria-label="close" data-menu-close>
+      <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M2 2l18 18M20 2L2 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <ul>
+      <li><a href="seashell.html">seashell</a></li>
+      <li><a href="workbench.html">workbench</a></li>
+      <li><a href="shorelist.html">shorelist</a></li>
+      <li><a href="journal/index.html">journal</a></li>
+      <li><a href="support.html">support</a></li>
+    </ul>
+  </div>
+</div>
+<dialog class="box" id="waitlist" aria-labelledby="soon-title">
+  <div class="in">
+    <div class="top">
+      <h2 class="h32" id="soon-title">coming soon</h2>
+      <button class="x" type="button" data-close aria-label="close"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    </div>
+    <p class="lead b18">Seashell is in development. Pre-order is planned for 2027, after the sea test and the supplier quotes. Leave your email and we tell you first.</p>
+    <form id="waitlist-form" method="post" novalidate>
+      <label for="email">email</label>
+      <div class="row">
+        <input class="field" id="email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="waitlist-msg" placeholder="name@example.com">
+        <button class="btn-buy" type="submit">join the waitlist</button>
+      </div>
+      <p class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></p>
+      <p class="msg" id="waitlist-msg" role="status" aria-live="polite"></p>
+    </form>
+    <noscript><p class="b16">The waitlist form needs JavaScript. Turn it on and reload this page to join.</p></noscript>
+    <p class="consent">Pau Adell and William Roskaer (Seashell, TU Delft) store your email, the time, your browser and the page you came from, only to send launch news. Nothing is charged or sold. To see or delete your data, write to <a href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>.</p>
+    <div class="done">
+      <h3 class="h24" tabindex="-1">You're on the list.</h3>
+      <p class="b18">We write when pre-order opens. Until then, nothing.</p>
     </div>
   </div>
 </dialog>
+<dialog class="box" id="yourdata" aria-labelledby="yd-title">
+  <div class="in">
+    <div class="top">
+      <h2 class="h32" id="yd-title">your data</h2>
+      <button class="x" type="button" data-close aria-label="close"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    </div>
+    <p class="b18">Pau Adell and William Roskaer (Seashell, TU Delft) store your email, the time, your browser and the page you came from, only to send launch news. Nothing is charged or sold.</p>
+    <p class="b18">To see or delete your data, write to <a href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>.</p>
+    <p class="consent">Page views and buy-now clicks are counted without your name. On this preview everything stays in your own browser.</p>
+  </div>
+</dialog>
+<script src="js/main.js"></script>
 </body>
 </html>

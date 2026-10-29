@@ -28,12 +28,15 @@
     } catch (e) { return "s-nostorage"; }
   }
 
-  // utm_* parameters from the address (a pitch QR code or a post carries them); kept for the session
+  // utm_* and ?place= from the address (an ad, a pitch QR code or a post carries them), stored in
+  // sessionStorage on the landing page and sent with every event and the waitlist row, so later pages
+  // (which have no query string) keep them. A new landing with any of these keys replaces the set.
+  var CAMPAIGN_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "place"];
   function utm() {
     var out = {};
     try {
       var q = new URLSearchParams(location.search);
-      ["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach(function (k) {
+      CAMPAIGN_KEYS.forEach(function (k) {
         var v = q.get(k);
         if (v) out[k] = v.slice(0, 120);
       });
@@ -151,10 +154,10 @@
     function notice() {
       if (noticed) return; noticed = true;
       if (!isDevHost()) console.error("[Seashell store] NOT CONFIGURED on " + location.hostname +
-        ": no Supabase url/key in js/config.js. Deploy with website/deploy.py. Sign-ups are refused.");
+        ": no Supabase url/key in js/config.js. Deploy with site-v1/deploy_v1.py. Sign-ups are refused.");
       console.warn("[Seashell store] LOCAL MODE (" + reason + "): page views, Buy-now clicks and waitlist " +
         "sign-ups stay in this browser's localStorage (keys seashell.events, seashell.waitlist). Nothing " +
-        "is sent anywhere. Set supabase.url and supabase.anonKey in js/config.js to collect real data.");
+        "is sent anywhere. The deployed copy (site-v1/deploy_v1.py) carries the key and writes to Supabase.");
     }
     function push(key, row) {
       notice();
