@@ -238,7 +238,7 @@
 .statement { text-align: center; }
 .statement h2 { font: 400 6rem/1 var(--nb); letter-spacing: -0.017em; }
 .statement p { font: 300 2.4rem/1 var(--nb); margin-top: 2.4rem; }
-.statement .small-src { margin-top: 2.4rem; max-width: 72rem; margin-left: auto; margin-right: auto; }
+.statement .small-src { margin-top: 2.4rem; }
 .sl-band { background: #1E4D47; color: var(--white); }   /* offing, the fit map's shorelist colour (concept A); BRAND.md: never berry as a wash behind text (step 899) */
 .sl-band h2 { font: 350 10rem/0.9 var(--nb); letter-spacing: -0.05em; }
 .sl-band p { font: 350 2rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; margin-top: 2.9rem; }
