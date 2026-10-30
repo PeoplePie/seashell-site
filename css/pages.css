@@ -238,7 +238,7 @@
 .statement { text-align: center; }
 .statement h2 { font: 400 6rem/1 var(--nb); letter-spacing: -0.017em; }
 .statement p { font: 300 2.4rem/1 var(--nb); margin-top: 2.4rem; }
-.statement .small-src { margin-top: 2.4rem; }
+.statement .small-src { margin-top: 2.4rem; max-width: 72rem; margin-left: auto; margin-right: auto; }
 .sl-band { background: #1E4D47; color: var(--white); }   /* offing, the fit map's shorelist colour (concept A); BRAND.md: never berry as a wash behind text (step 899) */
 .sl-band h2 { font: 350 10rem/0.9 var(--nb); letter-spacing: -0.05em; }
 .sl-band p { font: 350 2rem/1.1 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; margin-top: 2.9rem; }
@@ -265,6 +265,7 @@
   .sl-stat .txt { position: absolute; left: 3.1rem; right: 3.1rem; top: 9.4rem; text-align: center; }
   .sl-stat h2 { font: 400 4rem/1 var(--nb); letter-spacing: -0.025em; }
   .sl-stat p { font: 300 2.8rem/1 var(--nb); letter-spacing: -0.036em; margin-top: 3.5rem; }
+  .sl-src { margin: 1.6rem 1.77rem 0; text-align: center; }   /* step 915: the source under the picture */
   .sl-ritual { padding-top: 4rem; }
   .sl-ritual > p { padding: 0 1.77rem; font: 350 2rem/1.2 var(--pp); font-stretch: 92%; }
   .sl-ritual .card { margin: 2.4rem 1.77rem 0; height: 22.3rem; background: var(--panel); display: grid; place-items: center; text-align: center; padding: 2rem; }
