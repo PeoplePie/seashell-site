@@ -122,11 +122,13 @@
   </div>
   <p class="a noh b20" style="--x:900; --y:257; --w:444; --mp:1.86rem 1.77rem 0">Your people call the shell. You press once and talk through your headset.</p>
   <h3 class="only-m sub" style="padding:4.5rem 1.77rem 0">its own eSIM</h3>
-  <p class="only-m b20" style="padding:1.86rem 1.77rem 3rem">A Nordic nRF9151 modem with an eSIM uses LTE-M, the mobile network built for small devices. Calls go over the internet.</p>
+  <p class="only-m b20" style="padding:1.86rem 1.77rem 0">A Nordic nRF9151 modem with an eSIM uses LTE-M, the mobile network built for small devices. Calls go over the internet.</p>
+  <p class="only-m b20" style="padding:1.86rem 1.77rem 3rem">Planned: call, text, play by voice.</p>
   <div class="a noh rows only-d" style="--x:900; --y:410; --w:444" data-acc-set>
     <div class="acc is-open"><button type="button" aria-expanded="true">its own eSIM<span class="pm"></span></button><div class="body"><div><p>A Nordic nRF9151 modem with an eSIM uses LTE-M, the mobile network built for small devices. Calls go over the internet, so the shell needs LTE-M coverage.</p></div></div></div>
     <div class="acc"><button type="button" aria-expanded="false">your headset's microphone<span class="pm"></span></button><div class="body"><div><p>The shell has no microphone or speaker. You talk through a wired headset in the water and LE Audio earbuds on land.</p></div></div></div>
     <div class="acc"><button type="button" aria-expanded="false">the caller's name first<span class="pm"></span></button><div class="body"><div><p>The name lights up in the shell, four letters a line, so you know who it is before you press.</p></div></div></div>
+    <div class="acc"><button type="button" aria-expanded="false">voice commands (planned)<span class="pm"></span></button><div class="body"><div><p>Through your headset's microphone you say "call LOU", "text LOU" and a message you dictate, "play" and your music, or "follow my Strava workout". Planned firmware, not built yet.</p></div></div></div>
   </div>
   <div class="a marks only-d" style="--x:311; --y:820; --w:838; --h:92">
     <img src="img/p-mark-1.webp" alt="The shell's dots: LOU and three dots, someone is calling" width="350" height="262" loading="lazy" style="width:25.9rem; height:9rem">
@@ -196,7 +198,7 @@
   <h2 class="a noh h80" style="--x:96; --y:83; --w:900; --mp:6.2rem 1.77rem 0"><span class="only-d">made for salt water</span><span class="only-m h60">made for salt water</span></h2>
   <div class="cards rail" data-rail="salt" style="top:22.7rem">
     <figure><img class="only-d" src="img/p-salt-1.webp" alt="The shell in a surfer's open palm, his fingers wet and sandy, the sea behind" width="1800" height="892" loading="lazy"><img class="only-m" src="img/p-salt-m.webp" alt="The shell in a surfer's open palm, his fingers wet and sandy" width="780" height="864" loading="lazy"><span class="lab top">AI-generated scene (from the CAD model)</span>
-      <div class="panel" style="left:69.3rem; top:24rem"><span class="counter only-d" data-counter="salt">1/3</span><h3>IPX8 as a target</h3><p><span class="only-d">We have not tested it yet, and Seashell is not certified.</span><span class="only-m">Not tested yet, and not certified. The electronics sit sealed inside; the gap under the top is designed to flood and drain, so sand washes out (to test).</span></p></div></figure>
+      <div class="panel" style="left:69.3rem; top:24rem"><span class="counter only-d" data-counter="salt">1/3</span><h3>built to be waterproof</h3><p><span class="only-d">IPX8 is the target, not yet tested; Seashell is not certified.</span><span class="only-m">IPX8 is the target, not yet tested or certified. The electronics sit sealed inside, and sand washes out (to test).</span></p></div></figure>
     <figure class="only-d"><img src="img/p-salt-2.webp" alt="A cut through the shell, from its centre to the rim: the sealed capsule and the turning top" width="1800" height="893" loading="lazy"><span class="lab top">drawing, v4 section</span>
       <div class="panel" style="left:6.4rem; top:24rem"><h3>a sealed capsule</h3><p>The electronics sit sealed inside; the turning top stays outside.</p></div></figure>
     <figure class="only-d"><img src="img/p-salt-3.webp" alt="The parts along the stack" width="1600" height="794" loading="lazy"><span class="lab top">render v4</span>
@@ -292,21 +294,25 @@
   <div class="spec"><div class="num">1</div><h3>calls</h3><ul>
     <li><b>network</b><span>LTE-M and an eSIM (Nordic nRF9151)</span></li>
     <li><b>voice</b><span>internet calls through your headset</span></li>
-    <li><b>who</b><span>the caller's name in hidden dots, four letters a line</span></li></ul></div>
+    <li><b>who</b><span>the caller's name, four letters a line</span></li></ul></div>
   <div class="spec"><div class="num">2</div><h3>help</h3><ul>
     <li><b>gesture</b><span>hold 3 seconds: rings the contact you chose</span></li>
-    <li><b>position</b><span>your GNSS position goes with it</span></li></ul></div>
+    <li><b>position</b><span>GNSS, with the call</span></li></ul></div>
   <div class="spec"><div class="num">3</div><h3>battery</h3><ul>
-    <li><b>a day</b><span>a 10-hour day on the water with about 15 minutes of calls (target)</span></li>
+    <li><b>a day</b><span>10 hours on the water, about 15 minutes of calls (target)</span></li>
     <li><b>talk</b><span>about 45 to 90 minutes of calls non-stop (estimate)</span></li></ul></div>
   <div class="spec"><div class="num">4</div><h3>sound</h3><ul>
-    <li><b>in the water</b><span>wired headset through the cradle, in the water</span></li>
-    <li><b>on land</b><span>LE Audio earbuds on land</span></li>
-    <li><b>music</b><span>about 8 hours of music stored on the shell</span></li></ul></div>
+    <li><b>in the water</b><span>wired headset through the cradle</span></li>
+    <li><b>on land</b><span>LE Audio earbuds</span></li>
+    <li><b>music</b><span>about 8 hours stored on the shell</span></li></ul></div>
   <div class="spec"><div class="num">5</div><h3>the shell</h3><ul>
     <li><b>size</b><span>Ø30 × 8.0 mm; 8.6 mm on the wrist</span></li>
     <li><b>finish</b><span>one colour; 24-click turning top</span></li>
     <li><b>water</b><span>IPX8 target, not yet tested; not certified</span></li></ul></div>
+  <div class="spec"><div class="num">6</div><h3>planned</h3><ul>
+    <li><b>voice commands</b><span>call, text, play, Strava workouts</span></li>
+    <li><b>GPS pace</b><span>from the shell's GNSS</span></li>
+    <li><b>Garmin sensors</b><span>such as heart rate</span></li></ul></div>
   <a class="btn-up only-m" href="#buy" data-up>back up to buy ↑</a>
 </section>
 
