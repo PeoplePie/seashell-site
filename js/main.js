@@ -170,6 +170,10 @@
     $$("[data-tab-for]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tab-for") === id ? "true" : "false"); });
   };
   $$("[data-tab-for]").forEach(function (b) { b.addEventListener("click", function () { setTab(b.getAttribute("data-tab-for")); }); });
+  // an ad lands on its sport: ?place=surf|swim|run opens that place (the ads of step 916; store.js keeps the tag for tracking)
+  var landing = null;
+  try { landing = new URLSearchParams(location.search).get("place"); } catch (e) {}
+  if (landing && /^(surf|swim|run)$/.test(landing) && $("[data-tabs]")) setTab(landing);
   $$("[data-state]").forEach(function (b) {
     if (b.tagName !== "BUTTON") return;
     b.addEventListener("click", function () {
