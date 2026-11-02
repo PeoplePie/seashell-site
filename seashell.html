@@ -337,7 +337,7 @@
   <div class="col2">
     <h2>join the waitlist</h2>
     <p class="line"><span class="only-d">Launch news only, from Pau and William at TU Delft. Nothing is charged.</span><span class="only-m">Launch news only, from Pau and William at TU Delft.</span></p>
-    <form class="ft-form" novalidate>
+    <form class="ft-form" method="post" novalidate>
       <label class="sr" for="ft-email">your email</label>
       <input id="ft-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="your email" required>
       <p class="hp" aria-hidden="true"><label for="ft-website">Leave this empty</label><input id="ft-website" name="website" type="text" tabindex="-1" autocomplete="off"></p>
@@ -373,10 +373,10 @@
 <dialog class="box" id="waitlist" aria-labelledby="soon-title">
   <div class="in">
     <div class="top">
-      <h2 class="h32" id="soon-title">coming soon</h2>
+      <h2 class="h32" id="soon-title">join the waitlist</h2>
       <button class="x" type="button" data-close aria-label="close"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
     </div>
-    <p class="lead b18">Seashell is in development. Pre-order is planned for 2027, after the sea test and the supplier quotes. Leave your email and we tell you first.</p>
+    <p class="lead b18">Seashell is in development at TU Delft. Leave your email and you hear first when pre-order opens. Before that, one message with three short questions that shape the first shells. Nothing is charged.</p>
     <form id="waitlist-form" method="post" novalidate>
       <label for="email">email</label>
       <div class="row">
@@ -390,7 +390,7 @@
     <p class="consent">Pau Adell and William Roskaer (Seashell, TU Delft) store your email, the time, your browser and the page you came from, only to send launch news. Nothing is charged or sold. To see or delete your data, write to <a href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>.</p>
     <div class="done">
       <h3 class="h24" tabindex="-1">You're on the list.</h3>
-      <p class="b18">We write when pre-order opens. Until then, nothing.</p>
+      <p class="b18">We write when pre-order opens, and once before with three short questions. Until then, nothing.</p>
     </div>
   </div>
 </dialog>
@@ -402,9 +402,19 @@
     </div>
     <p class="b18">Pau Adell and William Roskaer (Seashell, TU Delft) store your email, the time, your browser and the page you came from, only to send launch news. Nothing is charged or sold.</p>
     <p class="b18">To see or delete your data, write to <a href="mailto:contact@sportseashell.com">contact@sportseashell.com</a>.</p>
-    <p class="consent">Page views and buy-now clicks are counted without your name and without cookies, in our database (Supabase): the page, the link you came from and its campaign tags, your browser, its language and window size, and a random number for this visit. The fonts load from Google Fonts.</p>
+    <p class="consent">Page views, how far you scroll, how long the page stays open, your clicks on the sport tabs and the waitlist, and whether the email box had text when you closed it, are counted without your name and without cookies, in our database (Supabase): the page, the link you came from and its campaign tags, your browser, its language and window size, and a random number for this visit. The fonts load from Google Fonts.</p>
   </div>
 </dialog>
+<aside class="sheet" id="sheet" hidden aria-label="join the waitlist">
+  <div class="in">
+    <button class="x" type="button" data-sheet-close aria-label="close"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    <p class="t">join the waitlist</p>
+    <p class="s">You hear first when pre-order opens. Nothing is charged.</p>
+    <form class="sheet-form" method="post" novalidate><label class="sr" for="sheet-email">your email</label><input id="sheet-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="your email" required aria-describedby="sheet-msg"><p class="hp" aria-hidden="true"><label for="sheet-website">Leave this empty</label><input id="sheet-website" name="website" type="text" tabindex="-1" autocomplete="off"></p><button type="submit" class="btn-buy">join</button></form>
+    <p class="msg" id="sheet-msg" role="status" aria-live="polite"></p>
+    <p class="pv"><a href="#yourdata" data-yourdata>privacy and your data</a></p>
+  </div>
+</aside>
 <script src="js/main.js"></script>
 </body>
 </html>

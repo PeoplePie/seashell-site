@@ -253,9 +253,34 @@
 .places .thumbs { position: absolute; display: grid; gap: 17.8rem; }
 .places .tab { transition: opacity 0.32s ease; }
 .places .tab:not(.is-on) { opacity: 0; pointer-events: none; }
+/* 2 Nov: the waitlist is the page's ask. A button and its note under the hook on the first screen, and a section of its own
+   after the places; the header's "buy now" stays (it counts price intent) */
+.btn-join { display: flex; align-items: center; justify-content: center; width: 32rem; max-width: 100%; height: 4.19rem; margin-top: 2.9rem;
+            border-radius: 0.4rem; background: var(--black); color: var(--white); font: 400 2.4rem/1 var(--nb); }
+.join-note { margin-top: 1.2rem; font: 400 1.4rem/1.3 var(--pp); font-stretch: 92%; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.85); }
+@media (min-width: 990px) { .sl-hero .hook { width: 44.8rem; } }   /* the measured hook width, desktop only: on the phone it ran past the frame */
+.sl-join { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: var(--white); }
+.sl-join h2 { font: 400 6rem/1 var(--nb); letter-spacing: -0.017em; }   /* the statement's heading */
+.sl-join .line { margin-top: 2.4rem; font: 350 2rem/1.2 var(--pp); font-stretch: 92%; letter-spacing: 0.03em; }
+.sl-join .join-form { width: 48rem; margin-top: 3.2rem; text-align: left; }
+.sl-join .msg { min-height: 1.9rem; margin-top: 1rem; font: 400 1.6rem/1.2 var(--pp); font-stretch: 92%; }
+.sl-join .consent { max-width: 56rem; margin-top: 0.6rem; font: 400 1.4rem/1.4 var(--pp); font-stretch: 92%; color: var(--meta); }
 @media (max-width: 989px) {
   .sl-hero { min-height: 84.8rem; position: relative; }
+  /* the picture fills the whole 848 px hero: .pic came after .mfill and put it back in the flow at its own 2:3 height,
+     so the hook (white) sat on the white page under it (2 Nov) */
+  .sl-hero .mfill { position: absolute; }
+  .sl-hero .mfill::after { content: ""; position: absolute; inset: 0; pointer-events: none;   /* the hook and button cross the foam */
+    background: linear-gradient(rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.32) 55%, rgba(0, 0, 0, 0.42)); }
   .sl-hero .copy { position: absolute; left: 0; right: 0; top: 47.2rem; z-index: 1; }
+  /* 2 Nov: on a short screen the copy rises until "join the waitlist" is on the first screen (header 11 rem, heading to
+     button 24.6 rem, 1.2 rem clear of the edge), never higher than 32.5 rem so the surfer stays clear; tall phones keep 47.2 */
+  .sl-hero .copy { top: clamp(32.5rem, calc(100vh - 36.8rem), 47.2rem); top: clamp(32.5rem, calc(100svh - 36.8rem), 47.2rem); }
+  .btn-join { width: 100%; }
+  .sl-join { padding: 4rem 1.77rem; }
+  .sl-join h2 { font-size: 4rem; letter-spacing: -0.025em; }
+  .sl-join .line { margin-top: 1.6rem; font-size: 1.8rem; }
+  .sl-join .join-form { width: 100%; margin-top: 2.4rem; }
   .sl-hero h1 { font: 400 4rem/1 var(--nb); letter-spacing: -0.025em; width: 32.35rem; }
   .sl-title { padding: 6.5rem 1.77rem 0; }
   .sl-title h2 { font: 400 8rem/1 var(--nb); letter-spacing: -0.025em; }

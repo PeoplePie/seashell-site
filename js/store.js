@@ -31,7 +31,8 @@
   // utm_* and ?place= from the address (an ad, a pitch QR code or a post carries them), stored in
   // sessionStorage on the landing page and sent with every event and the waitlist row, so later pages
   // (which have no query string) keep them. A new landing with any of these keys replaces the set.
-  var CAMPAIGN_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "place"];
+  // Meta appends utm_id (the campaign id) and utm_term (the ad set id).
+  var CAMPAIGN_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_id", "utm_term", "place"];
   function utm() {
     var out = {};
     try {
@@ -104,7 +105,7 @@
           source: String((props && props.section) || "unknown").slice(0, 60),   // which Buy-now button opened the form
           path: c.path, referrer: c.referrer, user_agent: c.user_agent,
           consent_at: c.ts,                                   // the moment "Join the waitlist" was pressed
-          utm: Object.assign({ tag: c.tag, session_id: c.session_id }, c.utm)
+          utm: Object.assign({ tag: c.tag, session_id: c.session_id, lang: c.lang }, c.utm)   // lang: the readout's M3 counts nl / es sign-ups
         });
       }
     };

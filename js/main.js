@@ -15,6 +15,34 @@
   /* ---------- page view (the view name tells the three product views apart) ---------- */
   if (store) store.trackEvent("page_view", { title: document.title, view: view });
 
+  /* ---------- engagement: how far down and how long, first-party, only through store.js (2 Nov 2026) ---------- */
+  var track = function (name, props) { if (store) store.trackEvent(name, props); };
+  var session = function (k, v) {   // sessionStorage, or null when the browser blocks it
+    try { if (v) sessionStorage.setItem(k, v); return sessionStorage.getItem(k); } catch (e) { return null; }
+  };
+  var sheetAt = null;               // the waitlist sheet below hooks in here: called with each measured depth
+  var marks = [25, 50, 75, 100], ticking = false;
+  var measure = function () {
+    ticking = false;
+    var h = root.scrollHeight, vh = window.innerHeight;
+    if (h < vh * 1.2) return;       // nothing to scroll
+    var depth = (window.scrollY + vh + 2) / h;   // 2 px for sub-pixel rounding at the very bottom
+    while (marks.length && depth * 100 >= marks[0]) track("scroll", { depth: marks.shift(), view: view });
+    if (sheetAt) sheetAt(depth);
+  };
+  window.addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(measure); }   // at most one measurement per frame
+  }, { passive: true });
+  // dwell at 10 s and 30 s, counted only while the page is in view; a hidden tab counts when it comes back
+  var dwellLeft = [];
+  var dwell = function (sec) { track("dwell", { seconds: sec, view: view }); };
+  [10, 30].forEach(function (sec) {
+    setTimeout(function () { if (document.visibilityState === "visible") dwell(sec); else dwellLeft.push(sec); }, sec * 1000);
+  });
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") dwellLeft.splice(0).forEach(dwell);
+  });
+
   /* ---------- the announcement bar: two messages swap every 2.9 s with a 0.4 s fade ---------- */
   var bar = $(".mbar");
   if (bar && !reduced) {
@@ -169,7 +197,9 @@
     });
     $$("[data-tab-for]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tab-for") === id ? "true" : "false"); });
   };
-  $$("[data-tab-for]").forEach(function (b) { b.addEventListener("click", function () { setTab(b.getAttribute("data-tab-for")); }); });
+  $$("[data-tab-for]").forEach(function (b) {
+    b.addEventListener("click", function () { var id = b.getAttribute("data-tab-for"); setTab(id); track("tab_click", { tab: id, view: view }); });
+  });
   // an ad lands on its sport: ?place=surf|swim|run opens that place (the ads of step 916; store.js keeps the tag for tracking)
   var landing = null;
   try { landing = new URLSearchParams(location.search).get("place"); } catch (e) {}
@@ -272,15 +302,36 @@
   }
 
   /* ---------- buy now: the Coming soon window and the waitlist ---------- */
-  var dialog = $("#waitlist"), emailIn = $("#email"), lastSection = "unknown";
-  var openSoon = function (section) {
+  var dialog = $("#waitlist"), emailIn = $("#email"), lastSection = "unknown", autoFocus = false;
+  var openSoon = function (section, buy) {
     lastSection = section || "unknown";
-    if (store) store.trackEvent("buy_click", { section: lastSection, price: cfg.price || 199, currency: cfg.currency || "EUR", view: view });
+    // buy_click stays the price-intent signal: only a buy button counts, a "join the waitlist" ask does not
+    if (buy && store) store.trackEvent("buy_click", { section: lastSection, price: cfg.price || 199, currency: cfg.currency || "EUR", view: view });
     if (!dialog) return;
-    if (typeof dialog.showModal === "function") { if (!dialog.open) dialog.showModal(); setTimeout(function () { emailIn && emailIn.focus(); }, 60); }
+    if (!dialog.open) track("waitlist_open", { section: lastSection, view: view });
+    if (typeof dialog.showModal === "function") {
+      if (!dialog.open) dialog.showModal();
+      // this focus is ours, not the visitor's: waitlist_focus skips it
+      setTimeout(function () { autoFocus = true; emailIn && emailIn.focus(); autoFocus = false; }, 60);
+    }
     else location.hash = "#waitlist";
   };
-  $$("[data-buy]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); openSoon(a.getAttribute("data-buy")); }); });
+  // a buy button: the header's (data-buy="nav"), a data-buy that starts with "buy", or a label that reads "buy"
+  var isBuy = function (a, s) { return s === "nav" || s.indexOf("buy") === 0 || /^buy\b/i.test(a.textContent.trim()); };
+  $$("[data-buy]").forEach(function (a) {
+    a.addEventListener("click", function (e) { e.preventDefault(); var s = a.getAttribute("data-buy") || ""; openSoon(s, isBuy(a, s)); });
+  });
+  dialog && dialog.addEventListener("close", function () {
+    if (dialog.classList.contains("is-done")) return;
+    track("waitlist_close", { section: lastSection, typed: !!(emailIn && emailIn.value.trim().length > 0), view: view });
+  });
+  // the first time the visitor touches each email field (focus, tap or typing), once per field per page load
+  [["#email", "dialog"], ["#ft-email", "footer"], ["#join-email", "inline"], ["#sheet-email", "sheet"]].forEach(function (f) {
+    var el = $(f[0]), seen = false;
+    if (!el) return;
+    var first = function () { if (seen || autoFocus) return; seen = true; track("waitlist_focus", { section: f[1], view: view }); };
+    ["focusin", "pointerdown", "input"].forEach(function (ev) { el.addEventListener(ev, first); });
+  });
   $$("dialog.box").forEach(function (d) {
     $$("[data-close]", d).forEach(function (b) { b.addEventListener("click", function () { d.close(); }); });
     d.addEventListener("click", function (e) { if (e.target === d) d.close(); });
@@ -289,6 +340,7 @@
   $$("[data-yourdata]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); yd && yd.showModal(); }); });
   if (dialog && location.hash === "#waitlist") openSoon("hash");
 
+  var hideSheet = function () {};   // the sheet block below fills this in
   var submitTo = function (form, email, hpField, msgEl, section, onDone) {
     var say = function (text, bad) { msgEl.textContent = text; msgEl.classList.toggle("is-error", !!bad); };
     if (!store) { say("The waitlist could not load. Reload the page and try again.", true); return; }
@@ -297,14 +349,21 @@
     var btn = $("button[type=submit]", form); btn.disabled = true;
     say("Adding you to the list…");
     store.addToWaitlist(email, { section: section, price: cfg.price || 199 })
-      .then(function () { store.trackEvent("waitlist_submit", { ok: true, section: section, view: view }); say(""); onDone(); })
+      .then(function () { store.trackEvent("waitlist_submit", { ok: true, section: section, view: view }); session("seashell.joined", "1"); if (section !== "sheet") hideSheet(); say(""); onDone(); })
       .catch(function (err) {
         var code = (err && err.code) || "unknown";
-        if (code === "duplicate") { store.trackEvent("waitlist_submit", { ok: true, duplicate: true, section: section, view: view }); say(""); onDone(); return; }
+        if (code === "duplicate") { store.trackEvent("waitlist_submit", { ok: true, duplicate: true, section: section, view: view }); session("seashell.joined", "1"); if (section !== "sheet") hideSheet(); say(""); onDone(); return; }
         store.trackEvent("waitlist_error", { code: code, section: section });
         say((err && err.message) || "That did not go through. Check the address and try again.", true);
       })
       .then(function () { btn.disabled = false; });
+  };
+  // done: the form goes (only its other lines when the message sits inside it) and the message stays
+  var listDone = function (f, msg, text) {
+    var hide = function (el) { el.hidden = true; el.style.display = "none"; };   // a class with display wins over [hidden]
+    if (f.contains(msg)) $$(":scope > *", f).forEach(function (el) { if (!el.contains(msg)) hide(el); });
+    else hide(f);
+    msg.textContent = text;
   };
   var form = $("#waitlist-form");
   if (form) {
@@ -318,7 +377,57 @@
     ff.addEventListener("submit", function (e) {
       e.preventDefault();
       var msg = $(".ft .msg");
-      submitTo(ff, $("#ft-email").value.trim(), ff.website, msg, "footer", function () { ff.hidden = true; msg.textContent = "You're on the list. We write when pre-order opens."; });
+      submitTo(ff, $("#ft-email").value.trim(), ff.website, msg, "footer", function () { listDone(ff, msg, "You're on the list. We write when pre-order opens."); });
+    });
+  }
+
+  /* ---------- the waitlist ask in the page (shorelist, section sl-join) ---------- */
+  var jf = $(".join-form");
+  if (jf) {
+    jf.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var msg = $(".msg", jf.closest(".sec") || jf.parentNode);
+      submitTo(jf, $("#join-email").value.trim(), jf.website, msg, "inline", function () { listDone(jf, msg, "You're on the list. We write when pre-order opens."); });
+    });
+  }
+
+  /* ---------- the waitlist sheet: once per session from 60 % down and a screen down, never after a sign-up, never over a window
+     or the page's own form ---------- */
+  var sheet = $("#sheet");
+  if (sheet) {
+    var sf = $(".sheet-form", sheet), sIn = $("#sheet-email", sheet), sMsg = $(".msg", sheet), sheetState = 0;   // 0 waiting, 1 up, 2 gone
+    var forms = $$(".join-form, .ft-form");
+    var formOnScreen = function () { return forms.some(function (f) { var r = f.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; }); };
+    sheetAt = function (depth) {
+      if (sheetState === 1 && formOnScreen()) { closeSheet(true); return; }   // the page's own form is on screen: one ask at a time
+      // a short page is past 60 % on its first pixel: the visitor scrolls at least one screen first
+      if (sheetState || depth < 0.6 || $("dialog[open]") || formOnScreen() || window.scrollY < window.innerHeight) return;
+      if (session("seashell.sheet") === "1" || session("seashell.joined") === "1") { sheetState = 2; return; }
+      sheetState = 1;
+      session("seashell.sheet", "1");
+      sheet.hidden = false;
+      if (reduced) sheet.classList.add("is-on");
+      else requestAnimationFrame(function () { sheet.classList.add("is-on"); });
+      track("sheet_open", { view: view });
+    };
+    var closeSheet = function (quiet) {   // quiet: the sheet goes by itself (a sign-up, the page's own form), which is not a dismissal
+      if (sheetState !== 1) return;
+      sheetState = 2;
+      if (!quiet) track("sheet_close", { typed: !!(sIn && sIn.value.trim().length > 0), view: view });
+      sheet.classList.add("is-out");
+      setTimeout(function () { sheet.hidden = true; sheet.classList.remove("is-on", "is-out"); }, reduced ? 240 : 300);   // 0.3 s slide, or the 0.24 s fade
+    };
+    hideSheet = function () { closeSheet(true); };   // a sign-up in the window or the page's own form
+    $$("[data-sheet-close]", sheet).forEach(function (b) { b.addEventListener("click", function () { closeSheet(); }); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !$("dialog[open]") && (!menu || menu.hidden)) closeSheet();   // Escape closes the open window first
+    });
+    sf && sf.addEventListener("submit", function (e) {
+      e.preventDefault();
+      submitTo(sf, sIn.value.trim(), sf.website, sMsg, "sheet", function () {
+        listDone(sf, sMsg, "You're on the list.");
+        setTimeout(function () { closeSheet(true); }, 2000);
+      });
     });
   }
 })();
