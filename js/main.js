@@ -391,20 +391,21 @@
     });
   }
 
-  /* ---------- the waitlist sheet: once per session from 60 % down and a screen down, never after a sign-up, never over a window
-     or the page's own form ---------- */
+  /* ---------- the waitlist sheet (2 Nov, Pau: the ask must show quickly, every time): once per page view, from 25 % down or
+     after 6 s on the page, whichever first; never while a first-screen button, a window or the page's own form is on screen,
+     never after a sign-up, and not again in the session once someone has closed it ---------- */
   var sheet = $("#sheet");
   if (sheet) {
     var sf = $(".sheet-form", sheet), sIn = $("#sheet-email", sheet), sMsg = $(".msg", sheet), sheetState = 0;   // 0 waiting, 1 up, 2 gone
-    var forms = $$(".join-form, .ft-form");
+    var forms = $$(".join-form, .ft-form, .btn-join");   // the page's own asks: forms and the first-screen button
     var formOnScreen = function () { return forms.some(function (f) { var r = f.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; }); };
+    var timerDue = false, lastDepth = 0;
     sheetAt = function (depth) {
-      if (sheetState === 1 && formOnScreen()) { closeSheet(true); return; }   // the page's own form is on screen: one ask at a time
-      // a short page is past 60 % on its first pixel: the visitor scrolls at least one screen first
-      if (sheetState || depth < 0.6 || $("dialog[open]") || formOnScreen() || window.scrollY < window.innerHeight) return;
-      if (session("seashell.sheet") === "1" || session("seashell.joined") === "1") { sheetState = 2; return; }
+      lastDepth = depth;
+      if (sheetState === 1 && formOnScreen()) { closeSheet(true); return; }   // the page's own ask is on screen: one ask at a time
+      if (sheetState || (depth < 0.25 && !timerDue) || $("dialog[open]") || formOnScreen()) return;
+      if (session("seashell.sheet.closed") === "1" || session("seashell.joined") === "1") { sheetState = 2; return; }
       sheetState = 1;
-      session("seashell.sheet", "1");
       sheet.hidden = false;
       if (reduced) sheet.classList.add("is-on");
       else requestAnimationFrame(function () { sheet.classList.add("is-on"); });
@@ -413,11 +414,12 @@
     var closeSheet = function (quiet) {   // quiet: the sheet goes by itself (a sign-up, the page's own form), which is not a dismissal
       if (sheetState !== 1) return;
       sheetState = 2;
-      if (!quiet) track("sheet_close", { typed: !!(sIn && sIn.value.trim().length > 0), view: view });
+      if (!quiet) { track("sheet_close", { typed: !!(sIn && sIn.value.trim().length > 0), view: view }); session("seashell.sheet.closed", "1"); }   // closed once: quiet for the session
       sheet.classList.add("is-out");
       setTimeout(function () { sheet.hidden = true; sheet.classList.remove("is-on", "is-out"); }, reduced ? 240 : 300);   // 0.3 s slide, or the 0.24 s fade
     };
     hideSheet = function () { closeSheet(true); };   // a sign-up in the window or the page's own form
+    setTimeout(function () { timerDue = true; sheetAt(lastDepth); }, 6000);   // 6 s on the page counts as much as 25 % of it
     $$("[data-sheet-close]", sheet).forEach(function (b) { b.addEventListener("click", function () { closeSheet(); }); });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !$("dialog[open]") && (!menu || menu.hidden)) closeSheet();   // Escape closes the open window first

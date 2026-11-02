@@ -255,6 +255,11 @@
 .places .tab:not(.is-on) { opacity: 0; pointer-events: none; }
 /* 2 Nov: the waitlist is the page's ask. A button and its note under the hook on the first screen, and a section of its own
    after the places; the header's "buy now" stays (it counts price intent) */
+/* the home film's ask (2 Nov, Pau: the waitlist must show quickly on every page): bottom left over the film, white on the dark scenes */
+.hero-ask { position: absolute; left: 9.6rem; bottom: 6.4rem; z-index: 2; width: 32rem; color: var(--white); }
+.hero-ask .btn-join { margin-top: 0; background: var(--white); color: var(--black); }
+.hero-ask .join-note { color: var(--white); text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7); }   /* readable over the sun glints */
+@media (max-width: 989px) { .hero-ask { left: 1.77rem; right: 1.77rem; top: 48rem; bottom: auto; width: auto; } }   /* inside the first 640 px and under the shell: the film runs 69.3rem under a 11rem header */
 .btn-join { display: flex; align-items: center; justify-content: center; width: 32rem; max-width: 100%; height: 4.19rem; margin-top: 2.9rem;
             border-radius: 0.4rem; background: var(--black); color: var(--white); font: 400 2.4rem/1 var(--nb); }
 .join-note { margin-top: 1.2rem; font: 400 1.4rem/1.3 var(--pp); font-stretch: 92%; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.85); }
