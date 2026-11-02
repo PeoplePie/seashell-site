@@ -397,13 +397,16 @@
   var sheet = $("#sheet");
   if (sheet) {
     var sf = $(".sheet-form", sheet), sIn = $("#sheet-email", sheet), sMsg = $(".msg", sheet), sheetState = 0;   // 0 waiting, 1 up, 2 gone
-    var forms = $$(".join-form, .ft-form, .btn-join");   // the page's own asks: forms and the first-screen button
+    // the page's own asks: its forms, and on the phone the first-screen button too (one ask at a time on a small screen;
+    // on a computer the card sits bottom right beside the film's button, so it comes at once)
+    var forms = $$(phone.matches ? ".join-form, .ft-form, .btn-join" : ".join-form, .ft-form");
+    var need = phone.matches ? 0.25 : 0;   // depth before the sheet may show without the timer
     var formOnScreen = function () { return forms.some(function (f) { var r = f.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; }); };
     var timerDue = false, lastDepth = 0;
     sheetAt = function (depth) {
       lastDepth = depth;
       if (sheetState === 1 && formOnScreen()) { closeSheet(true); return; }   // the page's own ask is on screen: one ask at a time
-      if (sheetState || (depth < 0.25 && !timerDue) || $("dialog[open]") || formOnScreen()) return;
+      if (sheetState || (depth < need && !timerDue) || $("dialog[open]") || formOnScreen()) return;
       if (session("seashell.sheet.closed") === "1" || session("seashell.joined") === "1") { sheetState = 2; return; }
       sheetState = 1;
       sheet.hidden = false;
@@ -419,7 +422,7 @@
       setTimeout(function () { sheet.hidden = true; sheet.classList.remove("is-on", "is-out"); }, reduced ? 240 : 300);   // 0.3 s slide, or the 0.24 s fade
     };
     hideSheet = function () { closeSheet(true); };   // a sign-up in the window or the page's own form
-    setTimeout(function () { timerDue = true; sheetAt(lastDepth); }, 6000);   // 6 s on the page counts as much as 25 % of it
+    setTimeout(function () { timerDue = true; sheetAt(lastDepth); }, phone.matches ? 6000 : 1500);   // phone: 6 s on the page counts as much as 25 % of it; computer: 1.5 s
     $$("[data-sheet-close]", sheet).forEach(function (b) { b.addEventListener("click", function () { closeSheet(); }); });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !$("dialog[open]") && (!menu || menu.hidden)) closeSheet();   // Escape closes the open window first

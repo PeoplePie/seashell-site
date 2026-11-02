@@ -256,7 +256,7 @@
 /* 2 Nov: the waitlist is the page's ask. A button and its note under the hook on the first screen, and a section of its own
    after the places; the header's "buy now" stays (it counts price intent) */
 /* the home film's ask (2 Nov, Pau: the waitlist must show quickly on every page): bottom left over the film, white on the dark scenes */
-.hero-ask { position: absolute; left: 9.6rem; bottom: 6.4rem; z-index: 2; width: 32rem; color: var(--white); }
+.hero-ask { position: absolute; left: 9.6rem; top: 58rem; z-index: 2; width: 32rem; color: var(--white); }   /* 58rem of the 89.8rem film: inside a laptop's first screen (viewport 800 px = 74.6rem under the header), left of the centred end card */
 .hero-ask .btn-join { margin-top: 0; background: var(--white); color: var(--black); }
 .hero-ask .join-note { color: var(--white); text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7); }   /* readable over the sun glints */
 @media (max-width: 989px) { .hero-ask { left: 1.77rem; right: 1.77rem; top: 48rem; bottom: auto; width: auto; } }   /* inside the first 640 px and under the shell: the film runs 69.3rem under a 11rem header */
