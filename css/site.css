@@ -290,6 +290,8 @@ dialog.box[open] { animation: veil-in 0.26s ease; }
 .box .msg.is-error, .ft .msg.is-error { color: #B3261E; }
 .ft .msg.is-error { color: #FFD7D3; }
 .box .consent { font: 400 1.4rem/1.4 var(--pp); font-stretch: 92%; color: var(--meta); }
+.box .pv { font: 400 1.4rem/1.3 var(--pp); font-stretch: 92%; color: var(--meta); }   /* 2 Nov: the same short line and privacy link as the sheet */
+.box .pv a { text-decoration: underline; text-underline-offset: 0.2em; }
 .box .done { display: none; }
 .box.is-done form, .box.is-done .lead { display: none; }
 .box.is-done .done { display: grid; gap: 1rem; }
