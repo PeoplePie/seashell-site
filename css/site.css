@@ -320,17 +320,18 @@ dialog.box[open] { animation: veil-in 0.26s ease; }
 .sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1200; max-width: 44rem; margin: 0 auto; background: var(--white); color: var(--black);
          border-radius: 0.4rem 0.4rem 0 0; box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.18); }
 .sheet[hidden] { display: none; }
+/* the phone's ask (2 Nov, Pau): a floating button near the bottom on every page, fixed while scrolling; the card is the computer's */
+.float-join { display: none; }
+@media (max-width: 989px) {
+  .sheet { display: none !important; }
+  .float-join { display: flex; position: fixed; left: 1.77rem; right: 1.77rem; bottom: 1.6rem; z-index: 1200; height: 4.8rem; align-items: center; justify-content: center;
+                border-radius: 0.6rem; background: var(--black); color: var(--white); font: 400 2.2rem/1 var(--nb); box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.28); border: 1px solid rgba(255, 255, 255, 0.22); }
+  .float-join[hidden] { display: none; }
+}
 .sheet .in { position: relative; padding: 1.8rem; }
 .sheet .x { position: absolute; right: 1rem; top: 1rem; width: 3.8rem; height: 3.8rem; display: grid; place-items: center; }
 .sheet .x svg { width: 1.8rem; height: 1.8rem; }
 .sheet .t { font: 400 2.4rem/1.1 var(--nb); padding-right: 4rem; }
-@media (max-width: 989px) {
-  .sheet.is-mini .in { padding: 1.3rem 1.8rem; }
-  .sheet.is-mini .s, .sheet.is-mini .sheet-form, .sheet.is-mini .msg, .sheet.is-mini .pv { display: none; }
-  .sheet.is-mini .t { cursor: pointer; }
-  .sheet.is-mini .t::after { content: ""; display: inline-block; width: 0.9rem; height: 0.9rem; margin: 0 0 0.3rem 1.2rem; border-right: 1.5px solid currentColor; border-top: 1.5px solid currentColor; transform: rotate(-45deg); vertical-align: middle; }
-  .sheet.is-mini .x { top: 0.6rem; }
-}
 .sheet .s { margin-top: 0.6rem; font: 400 1.6rem/1.3 var(--pp); font-stretch: 92%; letter-spacing: 0.02em; }
 .sheet .sheet-form { margin-top: 1.4rem; }
 .sheet .msg { font: 400 1.6rem/1.2 var(--pp); font-stretch: 92%; }

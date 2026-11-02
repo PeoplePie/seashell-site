@@ -402,19 +402,18 @@
     var sheetState = 0;   // 0 not yet, 1 up, 2 gone for the visit, 3 parked (a page form or a window is on screen)
     var forms = $$(".join-form, .ft-form"), opened = false;
     var formOnScreen = function () { return forms.some(function (f) { var r = f.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; }); };
-    var raise = function () {
-      if (phone.matches && !sheet.classList.contains("is-open")) sheet.classList.add("is-mini");   // the phone: one row until a tap, so the page under it stays readable
-      sheet.hidden = false; if (reduced) sheet.classList.add("is-on"); else requestAnimationFrame(function () { sheet.classList.add("is-on"); });
-    };
-    var sT = $(".t", sheet);
-    if (sT) {
-      sT.setAttribute("tabindex", "0"); sT.setAttribute("role", "button");
-      var unfold = function () { if (!sheet.classList.contains("is-mini")) return; sheet.classList.remove("is-mini"); sheet.classList.add("is-open"); sIn && sIn.focus(); };
-      sT.addEventListener("click", unfold);
-      sT.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); unfold(); } });
-    }
+    var raise = function () { sheet.hidden = false; if (reduced) sheet.classList.add("is-on"); else requestAnimationFrame(function () { sheet.classList.add("is-on"); }); };
     var park = function () { sheet.hidden = true; sheet.classList.remove("is-on", "is-out"); };
+    // the phone: a floating button near the bottom (2 Nov, Pau), there from second 0, away only while a window or a page
+    // form is on screen or after a sign-up; a tap opens the window like the header's link
+    var floatBtn = $(".float-join");
+    var floatAt = function () {
+      if (!floatBtn) return;
+      floatBtn.hidden = !phone.matches || session("seashell.joined") === "1" || !!$("dialog[open]") || formOnScreen();
+    };
     sheetAt = function () {
+      floatAt();
+      if (phone.matches) { if (sheetState === 1) park(); return; }   // the card is the computer's
       if (sheetState === 2) return;
       if (session("seashell.sheet.closed") === "1" || session("seashell.joined") === "1") { sheetState = 2; return; }
       if ($("dialog[open]") || formOnScreen()) { if (sheetState === 1) park(); sheetState = 3; return; }
@@ -432,7 +431,7 @@
       sheet.classList.add("is-out");
       setTimeout(function () { sheet.hidden = true; sheet.classList.remove("is-on", "is-out"); }, reduced ? 240 : 300);   // 0.3 s slide, or the 0.24 s fade
     };
-    hideSheet = function () { closeSheet(true); };   // a sign-up in the window or the page's own form
+    hideSheet = function () { closeSheet(true); floatAt(); };   // a sign-up in the window or the page's own form
     setTimeout(sheetAt, 50);                                                             // second 0
     document.addEventListener("close", function () { setTimeout(sheetAt, 0); }, true);  // a window closed: back (close does not bubble, so capture)
     window.addEventListener("resize", function () { sheetAt(); }, { passive: true });
